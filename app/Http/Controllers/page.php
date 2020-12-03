@@ -24,10 +24,6 @@ class page extends Controller
     {
         return view('tools');
     }
-    public function contact()
-    {
-        return view('contact');
-    }
 
     /**
      * Show the form for creating a new resource.

@@ -10,6 +10,26 @@
 
   <meta name="copyright" content="MACode ID, https://macodeid.com/">
 
+  <!-- favicon -->
+    <link rel="apple-touch-icon" sizes="57x57" href="{{asset('/apple-icon-57x57.png')}}">
+    <link rel="apple-touch-icon" sizes="60x60" href="{{asset('/apple-icon-60x60.png')}}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{{asset('/apple-icon-72x72.png')}}">
+    <link rel="apple-touch-icon" sizes="76x76" href="{{asset('/apple-icon-76x76.png')}}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{{asset('/apple-icon-114x114.png')}}">
+    <link rel="apple-touch-icon" sizes="120x120" href="{{asset('/apple-icon-120x120.png')}}">
+    <link rel="apple-touch-icon" sizes="144x144" href="{{asset('/apple-icon-144x144.png')}}">
+    <link rel="apple-touch-icon" sizes="152x152" href="{{asset('/apple-icon-152x152.png')}}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{asset('/apple-icon-180x180.png')}}">
+    <link rel="icon" type="image/png" sizes="192x192"  href="/{{asset('android-icon-192x192.png')}}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{asset('/favicon-32x32.png')}}">
+    <link rel="icon" type="image/png" sizes="96x96" href="{{asset('/favicon-96x96.png')}}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{asset('/favicon-16x16.png')}}">
+    <link rel="manifest" href="{{asset('/manifest.json')}}">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="{{asset('/ms-icon-144x144.png')}}">
+    <meta name="theme-color" content="#ffffff">
+  <!-- end favicon -->
+
   <title>@yield('title')</title>
 
   <link rel="stylesheet" href="{{asset('assets/css/maicons.css')}}">
@@ -29,7 +49,7 @@
   <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-white sticky" data-offset="500">
       <div class="container">
-        <img src="{{asset('assets/img/logo60.png')}}" alt="logo" class="mr-4">
+        <a href="{{url('')}}" class="mr-4"><img src="{{asset('assets/img/logo60.png')}}" alt="logo" ></a>
         <a href="{{url('')}}" class="navbar-brand">Robo<span class="text-primary">Investasi.</span></a>
 
         <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -47,14 +67,8 @@
             <li class="nav-item {{ (request()->is('blog*')) ? 'active' : '' }}">
               <a class="nav-link" href="{{url('blog')}}">Blog</a>
             </li>
-            <li class="nav-item {{ (request()->is('about*')) ? 'active' : '' }}">
-              <a class="nav-link" href="{{url('about')}}">Tentang</a>
-            </li>
-            <li class="nav-item {{ (request()->is('contact*')) ? 'active' : '' }}">
-              <a class="nav-link" href="{{url('contact')}}">Kontak</a>
-            </li>
             <li class="nav-item">
-              <a class="btn btn-primary ml-lg-2" href="{{url('tools')}}">Coba Analisis</a>
+              <a class="btn btn-primary ml-lg-2" href="{{url('login')}}">Masuk</a>
             </li>
           </ul>
         </div>
@@ -105,38 +119,34 @@
     <div class="container">
       <div class="row mb-5">
         <div class="col-lg-3 py-3">
-          <h3>SEOGram</h3>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero amet, repellendus eius blanditiis in iusto eligendi iure.</p>
+          <h3>RoboInvestasi</h3>
+          <p>Bantu kami meningkatkan manfaat dari website ini dengan kunjungi sosial media dan silakan mail, DM atau berkomentar di post yang telah kami buat.</p>
 
           <div class="social-media-button">
-            <a href="#"><span class="mai-logo-facebook-f"></span></a>
-            <a href="#"><span class="mai-logo-twitter"></span></a>
-            <a href="#"><span class="mai-logo-google-plus-g"></span></a>
-            <a href="#"><span class="mai-logo-instagram"></span></a>
-            <a href="#"><span class="mai-logo-youtube"></span></a>
+            <a href="mailto:kulitekno@gmail.com"><span class="mai-logo-google-plus-g"></span></a>
+            <a href="https://instagram.com/roboinvestasi"><span class="mai-logo-instagram"></span></a>
           </div>
         </div>
         <div class="col-lg-3 py-3">
-          <h5>Company</h5>
+          <h5>Organisasi</h5>
           <ul class="footer-menu">
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Career</a></li>
-            <li><a href="#">Advertise</a></li>
+            <li><a href="{{url('about')}}">Tentang kami</a></li>
+            <li><a href="https://api.whatsapp.com/send?phone=6283111712794&text=Saya%20mau%20beriklan%20dalam%20laman%20ini.">Periklanan</a></li>
             <li><a href="#">Terms of Service</a></li>
             <li><a href="#">Help & Support</a></li>
           </ul>
         </div>
         <div class="col-lg-3 py-3">
-          <h5>Contact Us</h5>
-          <p>203 Fake St. Mountain View, San Francisco, California, USA</p>
-          <a href="#" class="footer-link">+00 1122 3344 5566</a>
-          <a href="#" class="footer-link">seogram@temporary.com</a>
+          <h5>Hubungi Kami</h5>
+          <p>Jln. Raya Jember 72 Setail, Genteng, Banyuwangi, Jawa Timur, Indonesia</p>
+          <a href="#" class="footer-link">+62 8311 1712 794</a>
+          <a href="#" class="footer-link">kulitekno@gmail.com</a>
         </div>
         <div class="col-lg-3 py-3">
           <h5>Newsletter</h5>
-          <p>Get updates, news or events on your mail.</p>
+          <p>Dapatkan update, berita atau event yang dikirim di emailmu.</p>
           <form action="#">
-            <input type="text" class="form-control" placeholder="Enter your email..">
+            <input type="text" class="form-control" placeholder="Masukan email..">
             <button type="submit" class="btn btn-success btn-block mt-2">Subscribe</button>
           </form>
         </div>
