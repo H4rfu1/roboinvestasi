@@ -51,24 +51,24 @@
     <div class="container">
       <div class="row align-items-center">
         <div class="col-lg-6 py-3 wow fadeInUp">
-          <span class="subhead">About us</span>
-          <h2 class="title-section">The number #1 SEO Service Company</h2>
+          <span class="subhead">Tentang Kami</span>
+          <h2 class="title-section">RoboInvestasi #1 berkomitmen menghadirkan yang terbaik</h2>
           <div class="divider"></div>
 
-          <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
-          <p>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.</p>
-          <a href="{{url('about')}}" class="btn btn-primary mt-3">Read More</a>
+          <p>Kami akan membantu pengguna mengenal lebih jauh mmengenal topik investasi. Mulai dari definisi, alasan, tujuan, manfaat dan bagaimana cara berinvestasi yang baik.</p>
+          <p>Kami juga berusaha menghadirkan alat - alat untuk mempermudah mengambil keputusan dalam berinvestasi....</p>
+          <a href="{{url('about')}}" class="btn btn-primary mt-3">Selengkapnya</a>
         </div>
         <div class="col-lg-6 py-3 wow fadeInRight">
           <div class="img-fluid py-3 text-center">
-            <img src="{{asset('assets/img/about_frame.png')}}" alt="">
+            <img src="{{asset('assets/img/tentang_frame.png')}}" alt="">
           </div>
         </div>
       </div>
     </div> <!-- .container -->
   </div> <!-- .page-section -->
 
-  <div class="page-section bg-light">
+  <!-- <div class="page-section bg-light">
     <div class="container">
       <div class="text-center wow fadeInUp">
         <div class="subhead">Our services</div>
@@ -149,7 +149,7 @@
               <p>We analyse your website's structure, internal architecture & other key</p>
             </div>
           </div>
-        </div>
+        </div> -->
 
     </div> <!-- .container -->
   </div> <!-- .page-section -->
@@ -159,10 +159,10 @@
       <div class="container text-center">
         <div class="row justify-content-center wow fadeInUp">
           <div class="col-lg-8">
-            <h2 class="mb-4">Check your Website SEO</h2>
+            <h2 class="mb-4">Subscribe Newsletter</h2>
             <form action="#">
-              <input type="text" class="form-control" placeholder="E.g google.com">
-              <button type="submit" class="btn btn-success">Check Now</button>
+              <input type="text" class="form-control" placeholder="Cth. email@email.com">
+              <button type="submit" class="btn btn-success">Subscribe</button>
             </form>
           </div>
         </div>
@@ -257,18 +257,22 @@
       <div class="container">
         <div class="row align-items-center">
           <div class="col-lg-6 py-3 pr-lg-5 wow fadeInUp">
-            <h2 class="title-section">SEO to Improve Brand <br> Visibility</h2>
+            <h2 class="title-section"> Keunggulan RoboInvetasi</h2>
             <div class="divider"></div>
-            <p>We're an experienced and talented team of passionate consultants who breathe with search engine marketing.</p>
+            <p>Membantumu memahami seluk beluk investasi dengan menghadirkan beberapa fitur keren.</p>
             
             <ul class="theme-list theme-list-light text-white">
               <li>
-                <div class="h5">SEO Content Strategy</div>
-                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor</p>
+                <div class="h5">Bot RoboInvestasi</div>
+                <p>Akan menjawab pertanyaanmu seputar investasi. Ada di pojok kanan bawah laman.</p>
               </li>
               <li>
-                <div class="h5">B2B SEO</div>
-                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor</p>
+                <div class="h5">Alat RoboiInvestasi</div>
+                <p>Akan mempermudah mengambil keputusan seputar instrumen investasi.</p>
+              </li>
+              <li>
+                <div class="h5">Newsletter RoboiInvestasi</div>
+                <p>Akan mengingatkanmu seputar perkembangan berita dan materi investasi.</p>
               </li>
             </ul>
           </div>

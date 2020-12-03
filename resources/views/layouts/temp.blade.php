@@ -29,7 +29,8 @@
   <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-white sticky" data-offset="500">
       <div class="container">
-        <a href="{{url('')}}" class="navbar-brand">Seo<span class="text-primary">Gram.</span></a>
+        <img src="{{asset('assets/img/logo60.png')}}" alt="logo" class="mr-4">
+        <a href="{{url('')}}" class="navbar-brand">Robo<span class="text-primary">Investasi.</span></a>
 
         <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -40,20 +41,20 @@
             <li class="nav-item {{ (request()->is('/')) ? 'active' : '' }}">
               <a class="nav-link" href="{{url('')}}">Home</a>
             </li>
-            <li class="nav-item {{ (request()->is('about*')) ? 'active' : '' }}">
-              <a class="nav-link" href="{{url('about')}}">About</a>
-            </li>
             <li class="nav-item {{ (request()->is('tools*')) ? 'active' : '' }}">
-              <a class="nav-link" href="{{url('tools')}}">Tools</a>
+              <a class="nav-link" href="{{url('tools')}}">Alat</a>
             </li>
             <li class="nav-item {{ (request()->is('blog*')) ? 'active' : '' }}">
               <a class="nav-link" href="{{url('blog')}}">Blog</a>
             </li>
+            <li class="nav-item {{ (request()->is('about*')) ? 'active' : '' }}">
+              <a class="nav-link" href="{{url('about')}}">Tentang</a>
+            </li>
             <li class="nav-item {{ (request()->is('contact*')) ? 'active' : '' }}">
-              <a class="nav-link" href="{{url('contact')}}">Contact</a>
+              <a class="nav-link" href="{{url('contact')}}">Kontak</a>
             </li>
             <li class="nav-item">
-              <a class="btn btn-primary ml-lg-2" href="{{url('tools')}}">Free Analys</a>
+              <a class="btn btn-primary ml-lg-2" href="{{url('tools')}}">Coba Analisis</a>
             </li>
           </ul>
         </div>
@@ -65,9 +66,9 @@
       <div class="page-banner home-banner">
         <div class="row align-items-center flex-wrap-reverse h-100">
           <div class="col-md-6 py-5 wow fadeInLeft">
-            <h1 class="mb-4">Let's Check and Optimize your website!</h1>
-            <p class="text-lg text-grey mb-5">Ignite the most powerfull growth engine you have ever built for your company</p>
-            <a href="#" class="btn btn-primary btn-split">Watch Video <div class="fab"><span class="mai-play"></span></div></a>
+            <h1 class="mb-4">Mari Melek Finansial!</h1>
+            <p class="text-lg text-grey mb-5">RoboInvestasi siap membantu anda <i>"Finansial Freedom"</i> dengan berinvestasi.</p>
+            <!-- <a href="#about" class="btn btn-primary btn-split" >Mulai<div class="fab"><span class="mai-play"></span></div></a> -->
           </div>
           <div class="col-md-6 py-5 wow zoomIn">
             <div class="img-fluid text-center">
@@ -75,7 +76,7 @@
             </div>
           </div>
         </div>
-        <a href="{{url('about')}}" class="btn-scroll" data-role="smoothscroll"><span class="mai-arrow-down"></span></a>
+        <a href="#about" class="btn-scroll" data-role="smoothscroll"><span class="mai-arrow-down"></span></a>
       </div>
     </div>
   </header>
@@ -165,7 +166,20 @@
 		  integrationID: "e37bf3d6-57e7-4dcf-9d75-337c653e7e32", // The ID of this integration.
 		  region: "us-south", // The region your integration is hosted in.
 		  serviceInstanceID: "b31b47e4-6a60-43bd-87e6-5091322d7ff2", // The ID of your service instance.
-		  onLoad: function(instance) { instance.render(); }
+		  
+      // Config option to change Carbon themes.
+      carbonTheme: 'g10',
+    onLoad: function(instance) {
+      // Instance method to adjust specific CSS variables
+      instance.updateCSSVariables({
+        'BASE-font-family': '"Times New Roman", Times, serif',
+        '$active-primary': '#009747',
+        '$focus': '#045A48',
+        '$hover-primary': '#045A48',
+        '$interactive-01': '#009747'
+      });
+      instance.render();
+    }
 		};
 	  setTimeout(function(){
 		const t=document.createElement('script');
