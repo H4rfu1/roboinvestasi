@@ -18,6 +18,8 @@
 //page static controller
 Route::get('/', 'page@index')->name('homepage');
 Route::get('/about', 'page@about')->name('about');
+Route::get('/tools', 'page@tools')->name('tools');
+Route::get('/contact', 'page@contact')->name('contact');
 
 //another page
 

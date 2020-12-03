@@ -15,7 +15,7 @@
             <div class="body">
               <h5 class="text-secondary">SEO Consultancy</h5>
               <p>We help you define your SEO objective & develop a realistic strategy with you</p>
-              <a href="service.html" class="btn btn-primary">Read More</a>
+              <a href="{{url('tools')}}" class="btn btn-primary">Read More</a>
             </div>
           </div>
         </div>
@@ -27,7 +27,7 @@
             <div class="body">
               <h5 class="text-secondary">Content Marketing</h5>
               <p>We help you define your SEO objective & develop a realistic strategy with you</p>
-              <a href="service.html" class="btn btn-primary">Read More</a>
+              <a href="{{url('tools')}}" class="btn btn-primary">Read More</a>
             </div>
           </div>
         </div>
@@ -39,7 +39,7 @@
             <div class="body">
               <h5 class="text-secondary">Keyword Research</h5>
               <p>We help you define your SEO objective & develop a realistic strategy with you</p>
-              <a href="service.html" class="btn btn-primary">Read More</a>
+              <a href="{{url('tools')}}" class="btn btn-primary">Read More</a>
             </div>
           </div>
         </div>
@@ -57,7 +57,7 @@
 
           <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
           <p>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.</p>
-          <a href="about.html" class="btn btn-primary mt-3">Read More</a>
+          <a href="{{url('about')}}" class="btn btn-primary mt-3">Read More</a>
         </div>
         <div class="col-lg-6 py-3 wow fadeInRight">
           <div class="img-fluid py-3 text-center">

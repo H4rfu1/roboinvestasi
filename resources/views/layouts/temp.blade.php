@@ -6,6 +6,8 @@
 
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
+  <meta name="dicoding:email" content="takun917@gmail.com">
+
   <meta name="copyright" content="MACode ID, https://macodeid.com/">
 
   <title>@yield('title')</title>
@@ -27,7 +29,7 @@
   <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-white sticky" data-offset="500">
       <div class="container">
-        <a href="#" class="navbar-brand">Seo<span class="text-primary">Gram.</span></a>
+        <a href="{{url('')}}" class="navbar-brand">Seo<span class="text-primary">Gram.</span></a>
 
         <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -35,23 +37,23 @@
 
         <div class="navbar-collapse collapse" id="navbarContent">
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="index.html">Home</a>
+            <li class="nav-item {{ (request()->is('/')) ? 'active' : '' }}">
+              <a class="nav-link" href="{{url('')}}">Home</a>
+            </li>
+            <li class="nav-item {{ (request()->is('about*')) ? 'active' : '' }}">
+              <a class="nav-link" href="{{url('about')}}">About</a>
+            </li>
+            <li class="nav-item {{ (request()->is('tools*')) ? 'active' : '' }}">
+              <a class="nav-link" href="{{url('tools')}}">Tools</a>
+            </li>
+            <li class="nav-item {{ (request()->is('blog*')) ? 'active' : '' }}">
+              <a class="nav-link" href="{{url('blog')}}">Blog</a>
+            </li>
+            <li class="nav-item {{ (request()->is('contact*')) ? 'active' : '' }}">
+              <a class="nav-link" href="{{url('contact')}}">Contact</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="about.html">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="service.html">Services</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="blog.html">Blog</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="contact.html">Contact</a>
-            </li>
-            <li class="nav-item">
-              <a class="btn btn-primary ml-lg-2" href="#">Free Analytics</a>
+              <a class="btn btn-primary ml-lg-2" href="{{url('tools')}}">Free Analys</a>
             </li>
           </ul>
         </div>
@@ -73,7 +75,7 @@
             </div>
           </div>
         </div>
-        <a href="#about" class="btn-scroll" data-role="smoothscroll"><span class="mai-arrow-down"></span></a>
+        <a href="{{url('about')}}" class="btn-scroll" data-role="smoothscroll"><span class="mai-arrow-down"></span></a>
       </div>
     </div>
   </header>
@@ -84,7 +86,7 @@
           <div class="col-md-6">
             <nav aria-label="Breadcrumb">
               <ul class="breadcrumb justify-content-center py-0 bg-transparent">
-                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="{{url('')}}">Home</a></li>
                 <li class="breadcrumb-item active">@yield('breadcrumb')</li>
               </ul>
             </nav>
@@ -152,6 +154,10 @@
 <script src="{{asset('assets/vendor/wow/wow.min.js')}}"></script>
 
 <script src="{{asset('assets/js/theme.js')}}"></script>
+
+@if(Route::current()->getName() == 'contact')
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAIA_zqjFMsJM_sxP9-6Pde5vVCTyJmUHM&callback=initMap"></script>
+@endif
 
 <!-- Bot -->
 <script>
