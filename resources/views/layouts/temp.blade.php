@@ -152,6 +152,21 @@
 <script src="{{asset('assets/vendor/wow/wow.min.js')}}"></script>
 
 <script src="{{asset('assets/js/theme.js')}}"></script>
+
+<!-- Bot -->
+<script>
+	  window.watsonAssistantChatOptions = {
+		  integrationID: "e37bf3d6-57e7-4dcf-9d75-337c653e7e32", // The ID of this integration.
+		  region: "us-south", // The region your integration is hosted in.
+		  serviceInstanceID: "b31b47e4-6a60-43bd-87e6-5091322d7ff2", // The ID of your service instance.
+		  onLoad: function(instance) { instance.render(); }
+		};
+	  setTimeout(function(){
+		const t=document.createElement('script');
+		t.src="https://web-chat.global.assistant.watson.appdomain.cloud/loadWatsonAssistantChat.js";
+		document.head.appendChild(t);
+	  });
+	</script>
   
 </body>
 </html>
