@@ -26,7 +26,7 @@
       <div class="row">
         <div class="col-sm-10">
           <form action="#" class="form-search-blog">
-            <div class="input-group">
+            <!-- <div class="input-group">
               <div class="input-group-prepend">
                 <select id="categories" class="custom-select bg-light">
                   <option>All Categories</option>
@@ -37,28 +37,29 @@
                 </select>
               </div>
               <input type="text" class="form-control" placeholder="Enter keyword..">
-            </div>
+            </div> -->
           </form>
         </div>
         <div class="col-sm-2 text-sm-right">
-          <button class="btn btn-secondary">Filter <span class="mai-filter"></span></button>
+          <a class="btn btn-secondary" href="/blog/buat" >Buat artikel</a>
         </div>
       </div>
-
+      @foreach($get as $li)
       <div class="row my-5">
         <div class="col-lg-4 py-3">
           <div class="card-blog">
             <div class="header">
               <div class="post-thumb">
-                <img src="../assets/img/blog/blog-1.jpg" alt="">
+                <img src="{{ url($li->foto) }}" alt="">
               </div>
             </div>
             <div class="body">
-              <h5 class="post-title"><a href="/blog/detail">Source of Content Inspiration</a></h5>
-              <div class="post-date">Posted on <a href="#">27 Jan 2020</a></div>
+              <h5 class="post-title"><a href="/blog/detail/{{ $li->id }}">{{ $li->judul }}</a></h5>
+              <div class="post-date">Posted on <a href="#">{{ $li->waktu }}</a></div>
             </div>
           </div>
         </div>
+      @endforeach
         
         <div class="col-lg-4 py-3">
           <div class="card-blog">

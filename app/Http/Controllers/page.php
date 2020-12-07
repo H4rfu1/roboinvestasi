@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\blog;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class page extends Controller
 {
@@ -160,14 +162,98 @@ class page extends Controller
     }
     public function blog()
     {
-        return view('blog');
+        $data = blog::all();
+        return view('blog',['get'=>$data]);
     }
 
-    public function blogDetail()
+    public function blogDetail($id)
     {
-        return view('blog-details');
+        $data = blog::where('id',$id)->get();
+        return view('blog-details',['get'=>$data]);
     }
     
+    public function form()
+    {
+        return view('formBlog');
+    }
+
+    public function formUpdate($id)
+    {   
+        $data = blog::where('id',$id)->get();
+        return view('formBlogUpdate',['get'=>$data]);
+    }
+
+    public function createBlog(Request $request){
+        $request->validate([
+            'judul' => 'required',
+            'penulis' => 'required',
+            'isi' => 'required',
+            'foto' => 'required',
+        ],[
+            'judul.required' => 'Data harus diisi',
+            'penulis.required' => 'Data harus diisi',
+            'isi.required' => 'Data harus diisi',
+            'foto.required' => 'Data harus diisi',
+        ]);
+
+        $file = $request->file('foto');
+        $name = time();
+        $extension = $file->getClientOriginalExtension();
+        $newName = $name . '.' .$extension;
+        // dd($newName);
+        Storage::putFileAs('public/img', $request->file('foto'), $newName);
+
+        blog::create([
+            'judul'  => $request['judul'],
+            'penulis'  => $request['penulis'],
+            'isi' => $request['isi'],
+            'foto' => 'storage/img/' . $newName,
+            'waktu' => date("Y-m-d H:i:s"),
+        ]);
+
+        return redirect('/blog')->with('sukses' , 'Data berhasil disimpan');
+    }
+
+    public function updateBlog(Request $request){
+        $request->validate([
+            'judul' => 'required',
+            'penulis' => 'required',
+            'isi' => 'required',
+        ],[
+            'judul.required' => 'Data harus diisi',
+            'penulis.required' => 'Data harus diisi',
+            'isi.required' => 'Data harus diisi',
+        ]);
+
+        $file = $request->file('foto');
+
+        if($file != null){
+            $name = time();
+            $extension = $file->getClientOriginalExtension();
+            $newName = $name . '.' .$extension;
+            // dd($newName);
+            Storage::putFileAs('public/img', $request->file('foto'), $newName);
+
+            blog::create([
+                'judul'  => $request['judul'],
+                'penulis'  => $request['penulis'],
+                'isi' => $request['isi'],
+                'foto' => 'storage/img/' . $newName,
+                'waktu' => date("Y-m-d H:i:s"),
+            ]);
+        }
+        else{
+            blog::create([
+                'judul'  => $request['judul'],
+                'penulis'  => $request['penulis'],
+                'isi' => $request['isi'],
+                'waktu' => date("Y-m-d H:i:s"),
+            ]);
+        }
+
+        return redirect('/blog')->with('sukses' , 'Data berhasil disimpan');
+    }
+
     /**
      * Show the form for creating a new resource.
      *
