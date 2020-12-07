@@ -21,9 +21,10 @@ Route::get('/about', 'page@about')->name('about');
 Route::get('/tools', 'page@tools')->name('tools');
 Route::get('/contact', 'page@contact')->name('contact');
 Route::get('/blog', 'page@blog')->name('blog');
-Route::get('/blog/detail', 'page@blogDetail')->name('detail');
+Route::get('/blog/detail/{id}', 'page@blogDetail')->name('detail');
 Route::get('/blog/buat', 'page@form')->name('form');
 Route::post('/postBuat', 'page@createBlog')->name('buat');
+Route::post('/postUpdate', 'page@updateBlog')->name('update');
 
 //another page
 

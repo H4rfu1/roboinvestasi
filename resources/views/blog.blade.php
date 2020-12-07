@@ -44,21 +44,22 @@
           <a class="btn btn-secondary" href="/blog/buat" >Buat artikel</a>
         </div>
       </div>
-
+      @foreach($get as $li)
       <div class="row my-5">
         <div class="col-lg-4 py-3">
           <div class="card-blog">
             <div class="header">
               <div class="post-thumb">
-                <img src="../assets/img/blog/blog-1.jpg" alt="">
+                <img src="{{ url($li->foto) }}" alt="">
               </div>
             </div>
             <div class="body">
-              <h5 class="post-title"><a href="/blog/detail">Source of Content Inspiration</a></h5>
-              <div class="post-date">Posted on <a href="#">27 Jan 2020</a></div>
+              <h5 class="post-title"><a href="/blog/detail/{{ $li->id }}">{{ $li->judul }}</a></h5>
+              <div class="post-date">Posted on <a href="#">{{ $li->waktu }}</a></div>
             </div>
           </div>
         </div>
+      @endforeach
         
         <div class="col-lg-4 py-3">
           <div class="card-blog">

@@ -138,7 +138,7 @@
         </div>
         <div class="col-lg-3 py-3">
           <h5>Hubungi Kami</h5>
-          <p>Jln. Raya Jember 72 Setail, Genteng, Banyuwangi, Jawa Timur, Indonesia</p>
+          <p>Jln. Raya Sabang Merauke 17, Banyuwangi, Jawa Timur, Indonesia</p>
           <a href="#" class="footer-link">+62 8311 1712 794</a>
           <a href="#" class="footer-link">kulitekno@gmail.com</a>
         </div>
