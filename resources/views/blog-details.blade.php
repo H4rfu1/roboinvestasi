@@ -4,19 +4,20 @@
 
 @section('page')
 
+@foreach($get as $li)
   <div class="page-section pt-5">
     <div class="container">
       <nav aria-label="Breadcrumb">
         <ul class="breadcrumb p-0 mb-0 bg-transparent">
-          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-          <li class="breadcrumb-item"><a href="blog.html">Blog</a></li>
-          <li class="breadcrumb-item active">Second divided from form fish beastr</li>
+          <li class="breadcrumb-item"><a href="/">Home</a></li>
+          <li class="breadcrumb-item"><a href="/blog">Blog</a></li>
+          <li class="breadcrumb-item active">{{ $li->judul }}</li>
         </ul>
       </nav>
       
       <div class="row">
         <div class="col-lg-8">
-          @foreach($get as $li)
+          
           <div class="blog-single-wrap">
             <div class="header">
               <div class="post-thumb">
@@ -60,7 +61,7 @@
               <p>Praesent vel mi bibendum, finibus leo ac, condimentum arcu. Pellentesque sem ex, tristique sit amet suscipit in, mattis imperdiet enim. Integer tempus justo nec velit fringilla, eget eleifend neque blandit. Sed tempor magna sed congue auctor. Mauris eu turpis eget tortor ultricies elementum. Phasellus vel placerat orci, a venenatis justo. Phasellus faucibus venenatis nisl vitae vestibulum. Praesent id nibh arcu. Vivamus sagittis accumsan felis, quis vulputate</p> -->
             </div>
           </div>
-          @endforeach
+          
 
           <div class="comment-form-wrap pt-5">
             <h2 class="mb-5">Leave a comment</h2>
@@ -187,5 +188,6 @@
 
     </div>
   </div>
+@endforeach
 
 @endsection
