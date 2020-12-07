@@ -14,9 +14,9 @@
               <img src="../assets/img/services/service-1.svg" alt="">
             </div>
             <div class="body">
-              <h5 class="text-secondary">SEO Consultancy</h5>
-              <p>We help you define your SEO objective & develop a realistic strategy with you</p>
-              <a href="service.html" class="btn btn-primary">Read More</a>
+              <h5 class="text-secondary">Robo Pilih Reksadana (Robo PilReksa)</h5>
+              <p>Membantu merangkingkan pemilihan reksadana berdasakan kriteria yang ada menggunakan metode SAW(Simple Additive Weighting)</p>
+              <a href="{{url('tools/pilreksa')}}" class="btn btn-primary">Coba Alat</a>
             </div>
           </div>
         </div>

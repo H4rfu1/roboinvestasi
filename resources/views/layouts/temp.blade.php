@@ -40,6 +40,8 @@
 
   <link rel="stylesheet" href="{{asset('assets/css/theme.css')}}">
 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+
 </head>
 <body>
 
@@ -101,7 +103,11 @@
           <div class="col-md-6">
             <nav aria-label="Breadcrumb">
               <ul class="breadcrumb justify-content-center py-0 bg-transparent">
-                <li class="breadcrumb-item"><a href="{{url('')}}">Home</a></li>
+                @if(Route::current()->getName() == 'pilreksa')
+                 <li class="breadcrumb-item"><a href="{{url('tools')}}">Alat</a></li>
+                @else
+                  <li class="breadcrumb-item"><a href="{{url('')}}">Home</a></li>
+                @endif
                 <li class="breadcrumb-item active">@yield('breadcrumb')</li>
               </ul>
             </nav>
@@ -167,7 +173,28 @@
 <script src="{{asset('assets/js/theme.js')}}"></script>
 
 @if(Route::current()->getName() == 'contact')
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAIA_zqjFMsJM_sxP9-6Pde5vVCTyJmUHM&callback=initMap"></script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAIA_zqjFMsJM_sxP9-6Pde5vVCTyJmUHM&callback=initMap"></script>
+@elseif(Route::current()->getName() == 'pilreksa')
+  <script>
+    $(document).ready(function(){
+    // membatasi jumlah inputan
+    var maxGroup = 10;
+    //melakukan proses multiple input 
+    $(".addMore").click(function(){
+        if($('body').find('.fieldGroup').length < maxGroup){
+            var fieldHTML = '<div class="form-group fieldGroup">'+$(".fieldGroupCopy").html()+'</div>';
+            $('body').find('.fieldGroup:last').after(fieldHTML);
+        }else{
+            alert('Maximum '+maxGroup+' groups are allowed.');
+        }
+    });
+    
+    //remove fields group
+    $("body").on("click",".remove",function(){ 
+        $(this).parents(".fieldGroup").remove();
+      });
+    });
+	</script>
 @endif
 
 <!-- Bot -->
