@@ -19,6 +19,9 @@
 Route::get('/', 'page@index')->name('homepage');
 Route::get('/about', 'page@about')->name('about');
 Route::get('/tools', 'page@tools')->name('tools');
+Route::get('/contact', 'page@contact')->name('contact');
+Route::get('/blog', 'page@blog')->name('blog');
+Route::get('/blog/detail', 'page@blogDetail')->name('detail');
 
 //another page
 
