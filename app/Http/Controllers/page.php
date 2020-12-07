@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\blog;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class page extends Controller
 {
@@ -38,6 +40,42 @@ class page extends Controller
         return view('blog-details');
     }
     
+    public function form()
+    {
+        return view('formBlog');
+    }
+
+    public function createBlog(Request $request){
+        $request->validate([
+            'judul' => 'required',
+            'penulis' => 'required',
+            'isi' => 'required',
+            'foto' => 'required',
+        ],[
+            'judul.required' => 'Data harus diisi',
+            'penulis.required' => 'Data harus diisi',
+            'isi.required' => 'Data harus diisi',
+            'foto.required' => 'Data harus diisi',
+        ]);
+
+        $file = $request->file('foto');
+        $name = time();
+        $extension = $file->getClientOriginalExtension();
+        $newName = $name . '.' .$extension;
+        // dd($newName);
+        Storage::putFileAs('public/img', $request->file('foto'), $newName);
+
+        blog::create([
+            'judul'  => $request['judul'],
+            'penulis'  => $request['penulis'],
+            'isi' => $request['isi'],
+            'foto' => 'storage/img/' . $newName,
+            'waktu' => date("Y-m-d H:i:s"),
+        ]);
+        // return redirect()->route('seller/sms',[$id]);
+        return redirect('/blog')->with('sukses' , 'Data berhasil disimpan');
+    }
+
     /**
      * Show the form for creating a new resource.
      *

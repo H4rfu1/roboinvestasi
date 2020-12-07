@@ -26,7 +26,7 @@
       <div class="row">
         <div class="col-sm-10">
           <form action="#" class="form-search-blog">
-            <div class="input-group">
+            <!-- <div class="input-group">
               <div class="input-group-prepend">
                 <select id="categories" class="custom-select bg-light">
                   <option>All Categories</option>
@@ -37,11 +37,11 @@
                 </select>
               </div>
               <input type="text" class="form-control" placeholder="Enter keyword..">
-            </div>
+            </div> -->
           </form>
         </div>
         <div class="col-sm-2 text-sm-right">
-          <button class="btn btn-secondary">Filter <span class="mai-filter"></span></button>
+          <a class="btn btn-secondary" href="/blog/buat" >Buat artikel</a>
         </div>
       </div>
 
