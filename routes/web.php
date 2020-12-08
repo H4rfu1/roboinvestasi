@@ -32,5 +32,6 @@ Route::get('/blog/buat', 'page@form')->name('form');
 Route::post('/postBuat', 'page@createBlog')->name('buat');
 Route::post('/postUpdate', 'page@updateBlog')->name('update');
 
+// nganu
 //another page
 
