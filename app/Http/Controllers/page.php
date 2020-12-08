@@ -155,6 +155,12 @@ class page extends Controller
         }
     }
 
+    //tools pil saham
+    public function indexPilHam()
+    {
+        return view('tools.pilham', ['mode'=>'input']);
+    }
+
     //tools pil reksa
     public function contact()
     {

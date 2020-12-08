@@ -20,9 +20,9 @@ Route::get('/', 'page@index')->name('homepage');
 Route::get('/about', 'page@about')->name('about');
 Route::get('/tools', 'page@tools')->name('tools');
 Route::get('/tools/pilreksa', 'page@indexPilReksa')->name('pilreksa');
-Route::post('/robopilreksa', 'page@robopilreksa')->name('pilreksa');
-Route::get('/tools/b', 'page@tools');
-
+Route::post('/robopilreksa', 'page@robopilreksa');
+Route::get('/tools/pilham', 'page@indexPilHam')->name('pilreksa');
+Route::post('/robopilham', 'page@robopilham');
 
 
 Route::get('/contact', 'page@contact')->name('contact');
