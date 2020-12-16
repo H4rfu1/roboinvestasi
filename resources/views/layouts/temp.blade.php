@@ -45,7 +45,9 @@
   <link rel="stylesheet" href="{{asset('css/profsiko.css')}}">
   <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <meta name="csrf-token" content="{{ csrf_token() }}" />
- @endif
+@elseif(Route::current()->getName() == 'profil')
+  <link rel="stylesheet" href="{{asset('css/profil.css')}}">
+@endif
 
   <style>
       .modal-backdrop {
@@ -92,7 +94,7 @@
               <div class="dropdown">
                 <a href="#" data-toggle="dropdown" class="dropdown-toggle user-action text-black text-decoration-none"><img src="{{asset('assets/img/person.png')}}" style="max-width:40px" class="rounded-circle mr-1" alt="Avatar">{{Auth::user()->name}}<b class="caret"></b></a>
                 <ul class="dropdown-menu">
-                  <li><a href="{{url('/profil')}}" class="text-decoration-none"><i class="fa fa-user-o"></i> Profile</a></li>
+                  <li><a href="{{url('/profil')}}" class="text-decoration-none"><i class="fa fa-user-o"></i> Profil</a></li>
                   <!-- <li><a href="#" class="text-decoration-none"><i class="fa fa-calendar-o"></i> Calendar</a></li>
                   <li><a href="#" class="text-decoration-none"><i class="fa fa-sliders"></i> Settings</a></li> -->
                   <li class="dropdown-divider"></li>
@@ -102,7 +104,8 @@
             </div>
             @else
             <div class="ml-auto my-2 my-lg-0">
-              <a class="btn btn-primary ml-lg-2" href="{{url('login')}}">Masuk</a>
+              <a class="btn btn-light" href="{{url('register')}}">Daftar</a>
+              <a class="btn btn-primary ml-1" href="{{url('login')}}">Masuk</a>
             </div>
             @endif
         </div>

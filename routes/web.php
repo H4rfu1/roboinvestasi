@@ -21,7 +21,7 @@ Route::get('/about', 'page@about')->name('about');
 Route::get('/contact', 'page@contact')->name('contact');
 
 //profil
-Route::get('/profil', 'Profil@profil');
+Route::get('/profil', 'Profil@profil')->name('profil');
 Route::get('/profil/edit', 'Profil@profiledit');
 Route::post('/profil/{id}', 'Profil@profilupdate');
 

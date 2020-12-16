@@ -24,7 +24,7 @@ class Profil extends Controller
         if (!Auth::check()) {
             return redirect('/login');
         }else{
-            return view('profiledit');
+            return view('profil.profiledit');
         }
         
     }
