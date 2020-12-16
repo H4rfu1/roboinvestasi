@@ -31,6 +31,7 @@
   <!-- end favicon -->
 
   <title>@yield('title')</title>
+  <link rel="stylesheet" type="text/css" href="{{asset('assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css')}}">
 
   <link rel="stylesheet" href="{{asset('assets/css/maicons.css')}}">
 
@@ -39,13 +40,22 @@
   <link rel="stylesheet" href="{{asset('assets/vendor/animate/animate.css')}}">
 
   <link rel="stylesheet" href="{{asset('assets/css/theme.css')}}">
+  
 @if(Route::current()->getName() == 'profsiko')
   <link rel="stylesheet" href="{{asset('css/profsiko.css')}}">
   <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <meta name="csrf-token" content="{{ csrf_token() }}" />
  @endif
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
 
+  <style>
+      .modal-backdrop {
+    z-index: 100000 !important;
+  }
+
+  .modal {
+    z-index: 100001 !important;
+  }
+  </style>
 </head>
 <body>
 
@@ -63,7 +73,7 @@
         </button>
 
         <div class="navbar-collapse collapse" id="navbarContent">
-          <ul class="navbar-nav ml-auto">
+          <ul class="navbar-nav ml-auto ">
             <li class="nav-item {{ (request()->is('/')) ? 'active' : '' }}">
               <a class="nav-link" href="{{url('')}}">Home</a>
             </li>
@@ -76,10 +86,25 @@
             <li class="nav-item {{ (request()->is('diskusi*')) ? 'active' : '' }}">
               <a class="nav-link" href="{{url('diskusi')}}">Diskusi</a>
             </li>
-            <li class="nav-item">
-              <a class="btn btn-primary ml-lg-2" href="{{url('login')}}">Masuk</a>
-            </li>
           </ul>
+          @if(Auth::check())
+            <div class="ml-auto my-2 my-lg-0">
+              <div class="dropdown">
+                <a href="#" data-toggle="dropdown" class="dropdown-toggle user-action text-black text-decoration-none"><img src="{{asset('assets/img/person.png')}}" style="max-width:40px" class="rounded-circle mr-1" alt="Avatar">{{Auth::user()->name}}<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="{{url('/profil')}}" class="text-decoration-none"><i class="fa fa-user-o"></i> Profile</a></li>
+                  <!-- <li><a href="#" class="text-decoration-none"><i class="fa fa-calendar-o"></i> Calendar</a></li>
+                  <li><a href="#" class="text-decoration-none"><i class="fa fa-sliders"></i> Settings</a></li> -->
+                  <li class="dropdown-divider"></li>
+                  <li><a href="#" data-toggle="modal" data-target="#exampleModal" class="text-decoration-none"><i class="fa fa-sign-out"></i> Logout</a></li>
+                </ul>
+              </div>
+            </div>
+            @else
+            <div class="ml-auto my-2 my-lg-0">
+              <a class="btn btn-primary ml-lg-2" href="{{url('login')}}">Masuk</a>
+            </div>
+            @endif
         </div>
 
       </div>
@@ -125,6 +150,29 @@
     </div>
   </header>
   @endif
+  <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+    <form id="logout-form" action="{{ route('logout') }}" method="POST" >
+              @csrf
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Logout</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Apakah anda yakin ingin keluar?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-danger">Logout</button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
 
     @yield('page')
 

@@ -1,73 +1,76 @@
-@extends('layouts.app')
+@extends('layouts.auth')
+
+@section('judul', 'login')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+    <div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100 p-b-160 p-t-50">
+				<form class="login100-form validate-form" method="POST" action="{{ route('login') }}">
+                    @csrf
+					<div class="login100-form-avatar">
+						<a href="{{url('/')}}"><img src="{{asset('assets/img/avatar100.png')}}" alt="AVATAR"></a>
+					</div>
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
-                        @csrf
+					<span class="login100-form-title p-t-20 p-b-45">
+					</span>
 
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+					<div class="wrap-input100 validate-input m-b-10" data-validate = "email is required">
+						<input class="input100 @error('email') is-invalid @enderror" id="email" type="email" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Email" class="form-control" required oninvalid="this.setCustomValidity('data tidak boleh kosong')" oninput="setCustomValidity('')">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-envelope"></i>
+						</span>
+					</div>
+					<div class="wrap-input100 validate-input m-b-10" data-validate = "Password is required">
+						<input class="input100 @error('password') is-invalid @enderror" type="password" name="password" placeholder="Password" required autocomplete="current-password" class="form-control" required oninvalid="this.setCustomValidity('data tidak boleh kosong')" oninput="setCustomValidity('')">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-lock"></i>
+						</span>
+					</div>
+					@error('password')
+					<div class="alert alert-danger alert-dismissible fade show m-auto" role="alert">
+						{{ $message }}
+						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					@enderror
+					@error('email')
+					<div class="alert alert-danger alert-dismissible fade show m-auto" role="alert">
+						{{ $message }}
+						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					@enderror
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+					<!-- <div class="text-center checkbox w-full p-t-10 text-white">
+						<label style="font-size: 1em">
+						<input type="checkbox" value="" name="remember"  {{ old('remember') ? 'checked' : '' }}>
+						<span class="cr"><i class="cr-icon fa fa-check"></i></span>
+						{{ __('Remember Me') }}
+						</label>
+					</div> -->
 
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
+					<div class="container-login100-form-btn p-t-10">
+						<button class="login100-form-btn" type="submit">
+                            {{ __('Masuk') }}
+						</button>
+					</div>
+					<div class="text-center w-full p-t-23">
+						<a href="{{url('/')}}" class="txt1 float-left" style="color:white" onMouseOver="this.style.color='#0F0'" onMouseOut="this.style.color='#fff'">
+                        {{ __('Kembali ke Home') }}
+						</a>
 
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                    <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
-                                </button>
-
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                @endif
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+						<a href="{{url('/register')}}" class="txt1 float-right txt-white" style="color:white" onMouseOver="this.style.color='#0F0'" onMouseOut="this.style.color='#fff'">
+							{{ __('Buat akun') }}
+						</a>
+						
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
 @endsection

@@ -20,6 +20,11 @@ Route::get('/', 'page@index')->name('homepage');
 Route::get('/about', 'page@about')->name('about');
 Route::get('/contact', 'page@contact')->name('contact');
 
+//profil
+Route::get('/profil', 'Profil@profil');
+Route::get('/profil/edit', 'Profil@profiledit');
+Route::post('/profil/{id}', 'Profil@profilupdate');
+
 //alat
 Route::get('/alat', 'alat@tools')->name('tools');
 //alat pireksa
@@ -49,4 +54,6 @@ Route::get('/diskusi', 'diskusi@indexDiskusi')->name('diskusi');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', function () {
+        return redirect('/');
+    });

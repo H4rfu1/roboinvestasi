@@ -34,7 +34,7 @@ a {
 }
 
 a:hover {
-  color: #5641df;
+  color: #00BF26;
   text-decoration: underline;
 }
 
@@ -959,7 +959,7 @@ a.text-dark:hover, a.text-dark:focus {
 }
 
 .btn-link:hover {
-  color: #5641df;
+  color: #00BF26;
   text-decoration: underline;
 }
 
@@ -1694,7 +1694,7 @@ a.text-dark:hover, a.text-dark:focus {
 
 .card-blog .post-title a:hover,
 .card-blog .post-title a:focus {
-  color: #5641df;
+  color: #00BF26;
   text-decoration: none;
 }
 
@@ -2060,3 +2060,31 @@ a.text-dark:hover, a.text-dark:focus {
   padding-left: 14px !important;
   border-radius: 40px 0 0 40px;
 }
+
+
+nav .dropdown-menu i {
+  font-size: 16px;
+  min-width: 22px;
+  }
+  nav .dropdown.open > a {
+  background: none !important;
+  }
+  nav .dropdown-menu {
+  border-radius: 1px;
+  border-color: #e5e5e5;
+  box-shadow: 0 2px 8px rgba(0,0,0,.05);
+  }
+  nav .dropdown-menu li a {
+  color: #777;
+  padding: 8px 20px;
+  line-height: normal;
+  }
+  nav .dropdown-menu li a:hover, nav .dropdown-menu li a:active {
+  color: #333;
+  }
+  nav .dropdown-menu .material-icons {
+  font-size: 21px;
+  line-height: 16px;
+  vertical-align: middle;
+  margin-top: -2px;
+  }
