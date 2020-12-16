@@ -39,7 +39,11 @@
   <link rel="stylesheet" href="{{asset('assets/vendor/animate/animate.css')}}">
 
   <link rel="stylesheet" href="{{asset('assets/css/theme.css')}}">
-
+@if(Route::current()->getName() == 'profsiko')
+  <link rel="stylesheet" href="{{asset('css/profsiko.css')}}">
+  <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <meta name="csrf-token" content="{{ csrf_token() }}" />
+ @endif
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
 
 </head>
@@ -63,11 +67,14 @@
             <li class="nav-item {{ (request()->is('/')) ? 'active' : '' }}">
               <a class="nav-link" href="{{url('')}}">Home</a>
             </li>
-            <li class="nav-item {{ (request()->is('tools*')) ? 'active' : '' }}">
-              <a class="nav-link" href="{{url('tools')}}">Alat</a>
+            <li class="nav-item {{ (request()->is('alat*')) ? 'active' : '' }}">
+              <a class="nav-link" href="{{url('alat')}}">Alat</a>
             </li>
             <li class="nav-item {{ (request()->is('blog*')) ? 'active' : '' }}">
               <a class="nav-link" href="{{url('blog')}}">Blog</a>
+            </li>
+            <li class="nav-item {{ (request()->is('diskusi*')) ? 'active' : '' }}">
+              <a class="nav-link" href="{{url('diskusi')}}">Diskusi</a>
             </li>
             <li class="nav-item">
               <a class="btn btn-primary ml-lg-2" href="{{url('login')}}">Masuk</a>
@@ -104,7 +111,7 @@
             <nav aria-label="Breadcrumb">
               <ul class="breadcrumb justify-content-center py-0 bg-transparent">
                 @if(Route::current()->getName() == 'pilreksa')
-                 <li class="breadcrumb-item"><a href="{{url('tools')}}">Alat</a></li>
+                 <li class="breadcrumb-item"><a href="{{url('alat')}}">Alat</a></li>
                 @else
                   <li class="breadcrumb-item"><a href="{{url('')}}">Home</a></li>
                 @endif
@@ -171,6 +178,9 @@
 <script src="{{asset('assets/vendor/wow/wow.min.js')}}"></script>
 
 <script src="{{asset('assets/js/theme.js')}}"></script>
+@if(Route::current()->getName() == 'profsiko')
+  <script src="{{asset('js/profsiko.js')}}"></script>
+@endif
 
 @if(Route::current()->getName() == 'contact')
   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAIA_zqjFMsJM_sxP9-6Pde5vVCTyJmUHM&callback=initMap"></script>

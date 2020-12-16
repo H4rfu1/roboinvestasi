@@ -18,20 +18,35 @@
 //page static controller
 Route::get('/', 'page@index')->name('homepage');
 Route::get('/about', 'page@about')->name('about');
-Route::get('/tools', 'page@tools')->name('tools');
-Route::get('/tools/pilreksa', 'page@indexPilReksa')->name('pilreksa');
-Route::post('/robopilreksa', 'page@robopilreksa');
-Route::get('/tools/pilham', 'page@indexPilHam')->name('pilreksa');
-Route::post('/robopilham', 'page@robopilham');
-
-
 Route::get('/contact', 'page@contact')->name('contact');
+
+//alat
+Route::get('/alat', 'alat@tools')->name('tools');
+//alat pireksa
+Route::get('/alat/pilreksa', 'alat@indexPilReksa')->name('pilreksa');
+Route::post('/robopilreksa', 'alat@robopilreksa');
+//alat pilham
+Route::get('/alat/pilham', 'alat@indexPilHam')->name('pilreksa');
+Route::post('/robopilham', 'alat@robopilham');
+//alat profsiko
+Route::get('/alat/profsiko', 'alat@indexProfSiko')->name('profsiko');
+Route::post('/roboprofsiko', 'alat@roboprofsiko');
+
+//blog
 Route::get('/blog', 'page@blog')->name('blog');
 Route::get('/blog/detail/{id}', 'page@blogDetail')->name('detail');
 Route::get('/blog/buat', 'page@form')->name('form');
 Route::post('/postBuat', 'page@createBlog')->name('buat');
 Route::post('/postUpdate', 'page@updateBlog')->name('update');
 
+//diskusi
+Route::get('/diskusi', 'diskusi@indexDiskusi')->name('diskusi');
+
+
 // nganu
 //another page
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

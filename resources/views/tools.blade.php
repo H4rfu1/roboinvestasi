@@ -1,8 +1,8 @@
 @extends('layouts.temp')
 
-@section('title', 'Tools')
-@section('breadcrumb', 'Tools')
-@section('title2', 'Tools Ready to Use')
+@section('title', 'Alat')
+@section('breadcrumb', 'Alat')
+@section('title2', 'Alat Robo')
 
 @section('page')
   <div class="page-section">
@@ -11,36 +11,36 @@
         <div class="col-lg-4">
           <div class="card-service">
             <div class="header">
-              <img src="../assets/img/services/service-1.svg" alt="">
+              <img src="{{asset('assets/img/services/service-1.svg')}}" alt="">
             </div>
             <div class="body">
-              <h5 class="text-secondary">Robo Pilih Reksadana (Robo PilReksa)</h5>
-              <p>Membantu merangkingkan pemilihan reksadana berdasakan kriteria yang ada menggunakan metode SAW(Simple Additive Weighting)</p>
-              <a href="{{url('tools/pilreksa')}}" class="btn btn-primary">Coba Alat</a>
+              <h5 class="text-secondary">Robo Pilih Reksadana <br> (Robo PilReksa)</h5>
+              <p>Robo akan membantu merangkingkan pemilihan reksadana berdasakan kriteria yang ada menggunakan metode SAW(Simple Additive Weighting)</p>
+              <a href="{{url('alat/pilreksa')}}" class="btn btn-primary">Gunakan</a>
             </div>
           </div>
         </div>
         <div class="col-lg-4">
           <div class="card-service">
             <div class="header">
-              <img src="../assets/img/services/service-2.svg" alt="">
+              <img src="{{asset('assets/img/services/service-3.svg')}}" alt="">
             </div>
             <div class="body">
-              <h5 class="text-secondary">Content Marketing</h5>
-              <p>We help you define your SEO objective & develop a realistic strategy with you</p>
-              <a href="service.html" class="btn btn-primary">Read More</a>
+              <h5 class="text-secondary">Robo Profil Resiko <br> (Robo ProfSiko)</h5>
+              <p>Robo akan membantumu menentukan profil dari resiko diri kamu lewat beberapa pertanyaan dan memberikan saran jenis investasi yang dapat dipilih.</p>
+              <a href="{{url('alat/profsiko')}}" class="btn btn-primary">Gunakan</a>
             </div>
           </div>
         </div>
         <div class="col-lg-4">
           <div class="card-service">
             <div class="header">
-              <img src="../assets/img/services/service-3.svg" alt="">
+              <img src="{{asset('assets/img/services/service-2.svg')}}" alt="">
             </div>
             <div class="body">
-              <h5 class="text-secondary">Keyword Research</h5>
-              <p>We help you define your SEO objective & develop a realistic strategy with you</p>
-              <a href="service.html" class="btn btn-primary">Read More</a>
+              <h5 class="text-secondary">Robo Pilih Saham <br> (Robo PilHam)</h5>
+              <p>Robo akan membantu merangkingkan pemilihan saham berdasakan kriteria yang ada menggunakan metode SAW (Simple Additive Weighting)</p>
+              <a href="{{url('alat/pilham')}}" class="btn btn-primary">Gunakan</a>
             </div>
           </div>
         </div>
@@ -51,8 +51,8 @@
   <div class="page-section bg-light">
     <div class="container">
       <div class="text-center">
-        <div class="subhead">Our services</div>
-        <h2 class="title-section">How SEO Team Can Help</h2>
+        <div class="subhead">Saran Alat </div>
+        <h2 class="title-section">Sarankan Alat untuk Dibuat</h2>
         <div class="divider mx-auto"></div>
 
         <div class="row">

@@ -3,50 +3,6 @@
 @section('title', 'Home Page')
 
 @section('page')
-
-  <div class="page-section">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-4">
-          <div class="card-service wow fadeInUp">
-            <div class="header">
-              <img src="{{asset('assets/img/services/service-1.svg')}}" alt="">
-            </div>
-            <div class="body">
-              <h5 class="text-secondary">SEO Consultancy</h5>
-              <p>We help you define your SEO objective & develop a realistic strategy with you</p>
-              <a href="{{url('tools')}}" class="btn btn-primary">Read More</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4">
-          <div class="card-service wow fadeInUp">
-            <div class="header">
-              <img src="{{asset('assets/img/services/service-2.svg')}}" alt="">
-            </div>
-            <div class="body">
-              <h5 class="text-secondary">Content Marketing</h5>
-              <p>We help you define your SEO objective & develop a realistic strategy with you</p>
-              <a href="{{url('tools')}}" class="btn btn-primary">Read More</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4">
-          <div class="card-service wow fadeInUp">
-            <div class="header">
-              <img src="{{asset('assets/img/services/service-3.svg')}}" alt="">
-            </div>
-            <div class="body">
-              <h5 class="text-secondary">Keyword Research</h5>
-              <p>We help you define your SEO objective & develop a realistic strategy with you</p>
-              <a href="{{url('tools')}}" class="btn btn-primary">Read More</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div> <!-- .container -->
-  </div> <!-- .page-section -->
-
   <div class="page-section" id="about">
     <div class="container">
       <div class="row align-items-center">
@@ -67,6 +23,50 @@
       </div>
     </div> <!-- .container -->
   </div> <!-- .page-section -->  
+
+  
+  <div class="page-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="card-service">
+            <div class="header">
+              <img src="{{asset('assets/img/services/service-1.svg')}}" alt="">
+            </div>
+            <div class="body">
+              <h5 class="text-secondary">Robo Pilih Reksadana <br> (Robo PilReksa)</h5>
+              <p>Robo akan membantu merangkingkan pemilihan reksadana berdasakan kriteria yang ada menggunakan metode SAW(Simple Additive Weighting)</p>
+              <a href="{{url('alat/pilreksa')}}" class="btn btn-primary">Gunakan</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="card-service">
+            <div class="header">
+              <img src="{{asset('assets/img/services/service-3.svg')}}" alt="">
+            </div>
+            <div class="body">
+              <h5 class="text-secondary">Robo Profil Resiko <br> (Robo ProfSiko)</h5>
+              <p>Robo akan membantumu menentukan profil dari resiko diri kamu lewat beberapa pertanyaan dan memberikan saran jenis investasi yang dapat dipilih.</p>
+              <a href="{{url('alat/profsiko')}}" class="btn btn-primary">Gunakan</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="card-service">
+            <div class="header">
+              <img src="{{asset('assets/img/services/service-2.svg')}}" alt="">
+            </div>
+            <div class="body">
+              <h5 class="text-secondary">Robo Pilih Saham <br> (Robo PilHam)</h5>
+              <p>Robo akan membantu merangkingkan pemilihan saham berdasakan kriteria yang ada menggunakan metode SAW (Simple Additive Weighting)</p>
+              <a href="{{url('alat/pilreksa')}}" class="btn btn-primary">Gunakan</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> <!-- .container -->
+  </div> <!-- .page-section -->
   
   <!-- Banner info -->
   <div class="page-section banner-info">
@@ -81,15 +81,19 @@
             <ul class="theme-list theme-list-light text-white">
               <li>
                 <div class="h5">Bot RoboInvestasi</div>
-                <p>Akan menjawab pertanyaanmu seputar investasi. Ada di pojok kanan bawah laman.</p>
+                <p>Robo akan menjawab pertanyaanmu seputar investasi. Ada di pojok kanan bawah laman.</p>
               </li>
               <li>
                 <div class="h5">Alat RoboInvestasi</div>
-                <p>Akan mempermudah mengambil keputusan seputar instrumen investasi.</p>
+                <p>Robo akan membantumu mengambil keputusan seputar instrumen investasi.</p>
               </li>
               <li>
                 <div class="h5">Newsletter RoboInvestasi</div>
-                <p>Akan menapatkan update seputar perkembangan berita dan materi investasi, berita atau event yang dikirim di emailmu. Dikirim setiap bulan pada tanggal 15.</p>
+                <p>Robo akan mengirim email update seputar perkembangan website blog dan diskusi.</p>
+              </li>
+              <li>
+                <div class="h5">Blog dan Diskusi RoboInvestasi</div>
+                <p>Blog akan membahas update seputar perkembangan berita, materi investasi dan juga event seputar investasi.  Diskusi akan memberikan pengetahuan dari pengalaman sesama pembelajar. </p>
               </li>
             </ul>
           </div>
