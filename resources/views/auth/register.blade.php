@@ -78,7 +78,7 @@
                         {{ __('Kembali ke Home') }}
 						</a>
 						<a href="{{url('/login')}}" class="txt1 float-right"  style="color:white" onMouseOver="this.style.color='#0F0'" onMouseOut="this.style.color='#fff'">
-									{{ __('Login') }}
+									{{ __('Masuk') }}
 						</a>
 					</div>
 				</form>

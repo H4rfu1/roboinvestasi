@@ -18,7 +18,7 @@ class diskusi extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        // $this->middleware('auth');
     }
 
     /**
@@ -33,14 +33,13 @@ class diskusi extends Controller
         ->join('users', 'diskusi.id_pembuat', '=', 'users.id')
         ->get();
 
-        // dd($data);
+        // dd($data->isEmpty());
 
         if (Auth::check()) {
             return view('diskusi.index', compact('data'));
         }else{
-            return view('auth.login');
+            return redirect('login')->with('status', 'Login terlebih dahulu sebelum Mengakses fitur Diskusi');
         }
-        return view('komunitas.v_groupkomunitas', compact('data'));
     }
 
     /**
@@ -84,7 +83,7 @@ class diskusi extends Controller
         ->first();  
         $msg = '<li class="comment">
                     <div class="vcard bio">
-                        <img src="'.asset("/assets/img/person/person_1.png").'" alt="Image placeholder">
+                        <img src="'.asset('assets/img/person.png').'" alt="Image placeholder">
                     </div>
                     <div class="comment-body">
                         <h3>'.$data->name.'</h3>

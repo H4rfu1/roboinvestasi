@@ -5,7 +5,7 @@
 @section('title2', 'Diskusi')
 
 @section('page')
-  <div class="page-section">
+  <div class="page-section mt-0">
     <div class="container">
       <div class="row">
         <div class="col-lg-12 py-3 container">
@@ -17,13 +17,11 @@
                 </div>
 			@endif
 			<span class="success" style="color:green; margin-top:10px; margin-bottom: 10px;"></span>
-			@if(Auth::user()->role_id == 3 || Auth::user()->role_id == 1)
 			<button type="button" class="btn btn-success float-right" data-toggle="modal" data-target="#exampleModalCenter">
 				Buat Bahasan
 			</button>
 			<div class="clearfix">...</div>
-			@endif
-			<p class="text-center text-light">@if($data->isEmpty()){{"Belum ada diskusi"}}@endif</p>
+			<p class="text-center">@if($data->isEmpty()){{"Belum ada diskusi"}}@endif</p>
 			
 		@foreach($data as $p)
 			@php
@@ -99,7 +97,7 @@
 			  @foreach($komentar as $k)
 				<li class="comment">
 					<div class="vcard bio">
-					<img src="{{asset('/assets/img/person/person_1.png')}}" alt="Image placeholder">
+					<img src="{{asset('assets/img/person.png')}}" alt="Image placeholder">
 					</div>
 					<div class="comment-body">
 					<h3>{{$k->name}}</h3>
@@ -143,7 +141,7 @@
 				</div>
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+				<button type="button" class="btn btn-light" data-dismiss="modal">Batal</button>
 				<button type="submit" class="btn btn-primary">Buat</button>
 			</div>
 		</form>

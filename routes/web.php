@@ -46,6 +46,8 @@ Route::post('/postUpdate', 'page@updateBlog')->name('update');
 
 //diskusi
 Route::get('/diskusi', 'diskusi@indexDiskusi')->name('diskusi');
+Route::post('/buatdiskusi', 'diskusi@actionBuat');
+Route::post('/komen', 'diskusi@actionKirim');
 
 
 // nganu

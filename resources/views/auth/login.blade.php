@@ -6,6 +6,14 @@
     <div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100 p-b-160 p-t-50">
+	@if (session('status'))
+                <div class="alert alert-danger alert-dismissible " role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
+                </button>
+                {{ session('status') }}
+                </div>
+			@endif
+			
 				<form class="login100-form validate-form" method="POST" action="{{ route('login') }}">
                     @csrf
 					<div class="login100-form-avatar">
@@ -65,7 +73,7 @@
 						</a>
 
 						<a href="{{url('/register')}}" class="txt1 float-right txt-white" style="color:white" onMouseOver="this.style.color='#0F0'" onMouseOut="this.style.color='#fff'">
-							{{ __('Buat akun') }}
+							{{ __('Belum punya akun? Daftar') }}
 						</a>
 						
 					</div>

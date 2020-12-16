@@ -41,7 +41,7 @@
 
   <link rel="stylesheet" href="{{asset('assets/css/theme.css')}}">
   
-@if(Route::current()->getName() == 'profsiko')
+@if(Route::current()->getName() == 'profsiko' || Route::current()->getName() == 'diskusi')
   <link rel="stylesheet" href="{{asset('css/profsiko.css')}}">
   <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <meta name="csrf-token" content="{{ csrf_token() }}" />
