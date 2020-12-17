@@ -82,7 +82,15 @@
           @if(Auth::check())
             <div class="ml-auto my-2 my-lg-0">
               <div class="dropdown">
-                <a href="#" data-toggle="dropdown" class="dropdown-toggle user-action text-black text-decoration-none"><img src="{{asset('assets/img/person.png')}}" style="max-width:40px" class="rounded-circle mr-1" alt="Avatar">{{Auth::user()->name}}<b class="caret"></b></a>
+                <a href="#" data-toggle="dropdown" class="dropdown-toggle user-action text-black text-decoration-none">
+                  @if(auth()->user()->photo)
+                      <img src="{{ auth()->user()->photo }}" alt="photo" width="32" height="32" style="margin-right: 8px;">
+                  @else
+                  <img src="{{asset('assets/img/person.png')}}" style="max-width:40px" class="rounded-circle mr-1" alt="Avatar">
+                  @endif
+                  {{Auth::user()->name}}
+                  <b class="caret"></b>
+                </a>
                 <ul class="dropdown-menu">
                   <li><a href="{{url('/profil')}}" class="text-decoration-none"><i class="fa fa-user-o"></i> Profil</a></li>
                   <!-- <li><a href="#" class="text-decoration-none"><i class="fa fa-calendar-o"></i> Calendar</a></li>

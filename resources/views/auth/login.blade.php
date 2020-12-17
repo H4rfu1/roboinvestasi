@@ -75,8 +75,10 @@
 						<a href="{{url('/register')}}" class="txt1 float-right txt-white" style="color:white" onMouseOver="this.style.color='#0F0'" onMouseOut="this.style.color='#fff'">
 							{{ __('Belum punya akun? Daftar') }}
 						</a>
-						
 					</div>
+					<!-- <div class="w-full">
+						<a href="{{ route('login.provider', 'google') }}" class="btn btn-danger">{{ __('Google Sign in') }}</a>
+					</div> -->
 				</form>
 			</div>
 		</div>

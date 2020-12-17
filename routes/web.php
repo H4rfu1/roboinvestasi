@@ -50,11 +50,10 @@ Route::post('/buatdiskusi', 'diskusi@actionBuat');
 Route::post('/komen', 'diskusi@actionKirim');
 
 
-// nganu
-//another page
-
-
+//auth
 Auth::routes();
+Route::get('redirect/{driver}', 'Auth\LoginController@redirectToProvider')->name('login.provider');
+Route::get('{driver}/callback', 'Auth\LoginController@handleProviderCallback')->name('login.callback');
 
 Route::get('/home', function () {
         return redirect('/');
