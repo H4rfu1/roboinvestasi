@@ -24,7 +24,7 @@
     </div> <!-- .container -->
   </div> <!-- .page-section -->  
 
-  
+  <!-- tools -->
   <div class="page-section">
     <div class="container">
       <div class="row">
@@ -60,7 +60,7 @@
             <div class="body">
               <h5 class="text-secondary">Robo Pilih Saham <br> (Robo PilHam)</h5>
               <p>Robo akan membantu merangkingkan pemilihan saham berdasakan kriteria yang ada menggunakan metode SAW (Simple Additive Weighting)</p>
-              <a href="{{url('alat/pilreksa')}}" class="btn btn-primary">Gunakan</a>
+              <a href="{{url('alat/pilham')}}" class="btn btn-primary">Gunakan</a>
             </div>
           </div>
         </div>

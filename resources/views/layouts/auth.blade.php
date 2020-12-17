@@ -102,10 +102,9 @@
 @yield('content')
 
 <!--===============================================================================================-->
-	<script src="assets/vendor/jquery/jquery-3.2.1.min.js"></script>
+	<script src="{{asset('assets/js/jquery-3.5.1.min.js')}}"></script>
 <!--===============================================================================================-->
-	<script src="assets/vendor/bootstrap/js/popper.js"></script>
-	<script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="{{asset('assets/js/bootstrap.bundle.min.js')}}"></script>
 <!--===============================================================================================-->
 	<script src="assets/js/login.js"></script>
 

@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
+use App\m_saranalat;
+use Auth;
+
 class alat extends Controller
 {
     /**
@@ -14,7 +17,8 @@ class alat extends Controller
      */
     public function tools()
     {
-        return view('tools');
+        $login = Auth::check();
+        return view('tools', compact('login'));
     }
 
     //tools pil reksa
@@ -313,6 +317,26 @@ class alat extends Controller
     public function roboprofsiko(Request $request)
     {
         echo "Halo $request->nama, profsiko menjawab";
+    }
+    public function saranalatredirect(Request $request)
+    {
+        if (Auth::check()) {
+            return view('tools');
+        }else{
+            return redirect('login')->with('status', 'Login terlebih dahulu sebelum Mengakses fitur Tambah Saran Alat');
+        }
+    }
+
+    public function actionBuat(Request $request)
+    {
+        //metode sistem pakar
+        m_saranalat::create([
+            'nama_alat' => $request->nama_alat,
+            'deskripsi_alat' => $request->deskripsi_alat,
+            'tanggal_saranalat' => date("Y-m-d H:i:s"),
+            'id_pengguna' => $request->id
+        ]);
+        return redirect('alat')->with('status', 'Berhasil Dibuat');
     }
 
 }

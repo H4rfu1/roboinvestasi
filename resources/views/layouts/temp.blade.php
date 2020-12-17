@@ -31,7 +31,7 @@
 
   <link rel="stylesheet" href="{{asset('assets/css/theme.css')}}">
   
-@if(Route::current()->getName() == 'profsiko' || Route::current()->getName() == 'diskusi')
+@if(Route::current()->getName() == 'profsiko' || Route::current()->getName() == 'diskusi' || Route::current()->getName() == 'tools')
   <link rel="stylesheet" href="{{asset('css/profsiko.css')}}">
   <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <meta name="csrf-token" content="{{ csrf_token() }}" />
@@ -40,7 +40,13 @@
 @endif
 
   <style>
-      .modal-backdrop {
+  .page-banner{
+    background: #7F7FD5;
+    background: -webkit-linear-gradient(135deg, #00961D 0%, #045A48 80%);
+    background: linear-gradient(135deg, #00961D 0%, #045A48 80%);
+	}
+
+  .modal-backdrop {
     z-index: 100000 !important;
   }
 
@@ -115,8 +121,8 @@
       <div class="page-banner home-banner">
         <div class="row align-items-center flex-wrap-reverse h-100">
           <div class="col-md-6 py-5 wow fadeInLeft">
-            <h1 class="mb-4">Mari Melek Finansial!</h1>
-            <p class="text-lg text-grey mb-5">RoboInvestasi siap membantu anda <i>"Finansial Freedom"</i> dengan berinvestasi.</p>
+            <h1 class="mb-4 text-white">Mari Melek Finansial!</h1>
+            <p class="text-lg text-white mb-5">RoboInvestasi siap membantu anda <i>"Finansial Freedom"</i> dengan berinvestasi.</p>
             <!-- <a href="#about" class="btn btn-primary btn-split" >Mulai<div class="fab"><span class="mai-play"></span></div></a> -->
           </div>
           <div class="col-md-6 py-5 wow zoomIn">
@@ -137,14 +143,14 @@
             <nav aria-label="Breadcrumb">
               <ul class="breadcrumb justify-content-center py-0 bg-transparent">
                 @if(Route::current()->getName() == 'pilreksa')
-                 <li class="breadcrumb-item"><a href="{{url('alat')}}">Alat</a></li>
+                 <li class="breadcrumb-item "><a href="{{url('alat')}}">Alat</a></li>
                 @else
-                  <li class="breadcrumb-item"><a href="{{url('')}}">Home</a></li>
+                  <li class="breadcrumb-item"><a href="{{url('')}}" style="color:#00BF26">Home</a></li>
                 @endif
-                <li class="breadcrumb-item active">@yield('breadcrumb')</li>
+                <li class="breadcrumb-item active text-white">@yield('breadcrumb')</li>
               </ul>
             </nav>
-            <h1 class="text-center">@yield('title2')</h1>
+            <h1 class="text-center text-white">@yield('title2')</h1>
           </div>
         </div>
       </div>
@@ -227,6 +233,12 @@
 <script src="{{asset('assets/vendor/wow/wow.min.js')}}"></script>
 
 <script src="{{asset('assets/js/theme.js')}}"></script>
+<script>
+    $('.modal').on('shown.bs.modal', function() {
+    $(this).find('[autofocus]').focus();
+  });
+  </script>
+  
 @if(Route::current()->getName() == 'profsiko')
   <script src="{{asset('js/profsiko.js')}}"></script>
 @endif

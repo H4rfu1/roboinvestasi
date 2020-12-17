@@ -27,6 +27,9 @@ Route::post('/profil/{id}', 'Profil@profilupdate');
 
 //alat
 Route::get('/alat', 'alat@tools')->name('tools');
+Route::get('/saranalatredirect', 'alat@saranalatredirect');
+Route::post('/buatalat', 'alat@actionBuat');
+
 //alat pireksa
 Route::get('/alat/pilreksa', 'alat@indexPilReksa')->name('pilreksa');
 Route::post('/robopilreksa', 'alat@robopilreksa');
