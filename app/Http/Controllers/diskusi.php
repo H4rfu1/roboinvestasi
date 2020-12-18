@@ -87,7 +87,7 @@ class diskusi extends Controller
                     </div>
                     <div class="comment-body">
                         <h3>'.$data->name.'</h3>
-                        <div class="meta">'.$data->tanggal_komen.'</div>
+                        <div class="meta">'.date('d M y | H:i A', strtotime($data->tanggal_komen)).'</div>
                         <p>'.$data->komentar.'</p>
                     </div>
                 </li>';
