@@ -37,7 +37,8 @@ class page extends Controller
     public function blogDetail($id)
     {
         $data = blog::where('id',$id)->get();
-        return view('blog-details',['get'=>$data]);
+        $data2 = blog::orderBy('waktu','DESC')->take(5)->get();
+        return view('blog-details',['get'=>$data],['get2'=>$data2]);
     }
     
     public function form()

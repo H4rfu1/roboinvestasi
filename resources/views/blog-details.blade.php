@@ -5,6 +5,7 @@
 @section('page')
 
 @foreach($get as $li)
+@endforeach
   <div class="page-section pt-5">
     <div class="container">
       <nav aria-label="Breadcrumb">
@@ -26,7 +27,7 @@
               <div class="meta-header">
                 <div class="post-author">
                   <div class="avatar">
-                    <img src="../assets/img/person/person_1.jpg" alt="">
+                    <img src="{{asset('assets/img/person.png')}}" alt="">
                   </div>
                   by <a href="#">{{ $li->penulis }}</a>
                 </div>
@@ -44,13 +45,13 @@
               <div class="post-date">
                 <span class="icon">
                   <span class="mai-time-outline"></span>
-                </span> <a href="#">{{ $li->waktu }}</a>
+                </span> <a href="#">{{date('d F y | H:i A', strtotime($li->waktu))}}</a>
               </div>
-              <div class="post-comment-count ml-2">
+              <!-- <div class="post-comment-count ml-2">
                 <span class="icon">
                   <span class="mai-chatbubbles-outline"></span>
                 </span> <a href="#">4 Comments</a>
-              </div>
+              </div> -->
             </div>
             <div class="post-content">
               <p>{{ $li->isi }}</p>
@@ -63,7 +64,7 @@
           </div>
           
 
-          <div class="comment-form-wrap pt-5">
+          <!-- <div class="comment-form-wrap pt-5">
             <h2 class="mb-5">Leave a comment</h2>
             <form action="#" class="">
               <div class="form-row form-group">
@@ -90,21 +91,21 @@
               </div>
   
             </form>
-          </div>
+          </div> -->
 
         </div>
         <div class="col-lg-4">
           <div class="widget">
             <!-- Widget search -->
-            <div class="widget-box">
+            <!-- <div class="widget-box">
               <form action="#" class="search-widget">
                 <input type="text" class="form-control" placeholder="Enter keyword..">
                 <button type="submit" class="btn btn-primary btn-block">Search</button>
               </form>
-            </div>
+            </div> -->
 
             <!-- Widget Categories -->
-            <div class="widget-box">
+            <!-- <div class="widget-box">
               <h4 class="widget-title">Category</h4>
               <div class="divider"></div>
 
@@ -115,28 +116,29 @@
                 <li><a href="#">Sports</a></li>
                 <li><a href="#">Entertainment</a></li>
               </ul>
-            </div>
+            </div> -->
 
             <!-- Widget recent post -->
             <div class="widget-box">
               <h4 class="widget-title">Recent Post</h4>
               <div class="divider"></div>
 
+              @foreach($get2 as $li2)
               <div class="blog-item">
                   <a class="post-thumb" href="">
-                    <img src="../assets/img/blog/blog-1.jpg" alt="">
+                    <img src="{{ url($li2->foto) }}" alt="">
                   </a>
                   <div class="content">
-                    <h6 class="post-title"><a href="#">Even the all-powerful Pointing has no control</a></h6>
+                    <h6 class="post-title"><a href="#">{{$li2->judul}}</a></h6>
                     <div class="meta">
-                      <a href="#"><span class="mai-calendar"></span> July 12, 2018</a>
-                      <a href="#"><span class="mai-person"></span> Admin</a>
-                      <a href="#"><span class="mai-chatbubbles"></span> 19</a>
+                      <a href="#"><span class="mai-calendar"></span> {{date('d M y', strtotime($li2->waktu))}}</a>
+                      <a href="#"><span class="mai-person"></span> {{ $li2->penulis }}</a>
+                      <!-- <a href="#"><span class="mai-chatbubbles"></span> 19</a> -->
                     </div>
                   </div>
               </div>
-
-              <div class="blog-item">
+              @endforeach
+              <!-- <div class="blog-item">
                   <a class="post-thumb" href="">
                     <img src="../assets/img/blog/blog-2.jpg" alt="">
                   </a>
@@ -148,26 +150,13 @@
                       <a href="#"><span class="mai-chatbubbles"></span> 19</a>
                     </div>
                   </div>
-              </div>
+              </div> -->
 
-              <div class="blog-item">
-                  <a class="post-thumb" href="">
-                    <img src="../assets/img/blog/blog-3.jpg" alt="">
-                  </a>
-                  <div class="content">
-                    <h6 class="post-title"><a href="#">Even the all-powerful Pointing has no control</a></h6>
-                    <div class="meta">
-                      <a href="#"><span class="mai-calendar"></span> July 12, 2018</a>
-                      <a href="#"><span class="mai-person"></span> Admin</a>
-                      <a href="#"><span class="mai-chatbubbles"></span> 19</a>
-                    </div>
-                  </div>
-              </div>
 
             </div>
 
             <!-- Widget Tag Cloud -->
-            <div class="widget-box">
+            <!-- <div class="widget-box">
               <h4 class="widget-title">Tag Cloud</h4>
               <div class="divider"></div>
 
@@ -180,7 +169,7 @@
                 <a href="#" class="tag-cloud-link">Knowledge</a>
                 <a href="#" class="tag-cloud-link">Food</a>
               </div>
-            </div>
+            </div> -->
 
           </div>
         </div>
@@ -188,6 +177,6 @@
 
     </div>
   </div>
-@endforeach
+
 
 @endsection

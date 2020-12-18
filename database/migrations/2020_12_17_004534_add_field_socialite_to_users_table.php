@@ -13,12 +13,12 @@ class AddFieldSocialiteToUsersTable extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->string('socialite_id')->nullable()->after('id');
-            $table->string('socialite_name')->nullable()->after('socialite_id');
-            $table->string('photo')->nullable()->after('socialite_name');
-            $table->string('password')->nullable()->change();
-        });
+        // Schema::table('users', function (Blueprint $table) {
+        //     $table->string('socialite_id')->nullable()->after('id');
+        //     $table->string('socialite_name')->nullable()->after('socialite_id');
+        //     $table->string('photo')->nullable()->after('socialite_name');
+        //     $table->string('password')->nullable()->change();
+        // });
     }
 
     /**
