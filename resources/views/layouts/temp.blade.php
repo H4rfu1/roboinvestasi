@@ -268,8 +268,8 @@
         <div class="col-lg-3 py-3">
           <h5>Newsletter</h5>
           <p>Dapatkan update, berita atau event yang dikirim di emailmu.</p>
-          <form action="#">
-            <input type="text" class="form-control" placeholder="Masukan email..">
+          <form action="{{url('buatnewsletter')}}" method="get">
+            <input type="email" name="email" class="form-control" placeholder="Masukan email..">
             <button type="submit" class="btn btn-success btn-block mt-2">Subscribe</button>
           </form>
         </div>

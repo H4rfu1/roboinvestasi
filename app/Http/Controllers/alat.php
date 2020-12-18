@@ -405,7 +405,7 @@ class alat extends Controller
             'deskripsi_alat' => $request->deskripsi_alat,
             'tanggal_saranalat' => date("Y-m-d H:i:s")
         ]);
-        return redirect('alat')->with('status', 'Saran Alat Kamu Berhasil Robo Simpan');
+        return redirect('alat')->with('status', 'Saran Alat Kamu Berhasil Robo Ubah');
     }
     public function actionBuat(Request $request)
     {
@@ -416,7 +416,7 @@ class alat extends Controller
             'tanggal_saranalat' => date("Y-m-d H:i:s"),
             'id_pengguna' => $request->id
         ]);
-        return redirect('alat')->with('status', 'Saran Alat Kamu Berhasil Robo Ubah');
+        return redirect('alat')->with('status', 'Saran Alat Kamu Berhasil Robo Simpan');
     }
 
 }

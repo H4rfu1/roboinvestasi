@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\blog;
+use App\m_newsletter;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Mail;
 
 class page extends Controller
 {
@@ -127,9 +129,28 @@ class page extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function buatnewsletter(Request $request)
     {
-        //
+        $aktivasi = base64_encode(random_bytes(32));
+        $to_email = $request->email;
+        $to_name = 'Robin';
+        $data = [
+            'aktivasi' => $aktivasi,
+        'to_email' => $to_email
+    ];
+        Mail::send('layouts.mail', $data, function($message) use ($to_email, $to_name)
+        {
+            $message->from('robo@kulitekno.com', "RoboInvestasi");
+            $message->subject("Aktivasi to Newsletter");
+            $message->to($to_email);
+        });
+
+        m_newsletter::create([
+            'email'  => $to_email,
+            'aktivasi'  => $aktivasi,
+            'status' => 0
+        ]);
+        return redirect('/')->with('sukses' , 'Terdaftar newletter, silakan aktivasi liat di email anda.');
     }
 
     /**
@@ -172,9 +193,14 @@ class page extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function aktivasi($aktivasi)
     {
-        //
+        DB::table('newsletter')->where('aktivasi', $aktivasi)
+        ->update([
+            'status' => 1,
+            'tanggal_aktivasi' => date("Y-m-d H:i:s")
+        ]);
+        return redirect('/')->with('status', 'Aktivasi newletter berhasil');
     }
 
     /**

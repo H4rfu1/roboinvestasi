@@ -173,9 +173,9 @@
         <div class="row justify-content-center wow fadeInUp">
           <div class="col-lg-8">
             <h2 class="mb-4">Subscribe Newsletter</h2>
-            <form action="#">
-              <input type="text" class="form-control" placeholder="Masukan email..">
-              <button type="submit" class="btn btn-success">Subscribe</button>
+            <form action="{{url('buatnewsletter')}}" method="get">
+            <input type="email" name="email" class="form-control" placeholder="Masukan email..">
+            <button type="submit" class="btn btn-success btn-block mt-2">Subscribe</button>
             </form>
           </div>
         </div>

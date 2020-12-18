@@ -25,6 +25,10 @@ Route::get('/profil', 'Profil@profil')->name('profil');
 Route::get('/profil/edit', 'Profil@profiledit');
 Route::post('/profil/{id}', 'Profil@profilupdate');
 
+//newsletter
+Route::get('/buatnewsletter', 'page@buatnewsletter');
+Route::get('/aktivasi/{aktivasi}', 'page@aktivasi');
+
 //alat
 Route::get('/alat', 'alat@tools')->name('tools');
 Route::get('/saranalatredirect', 'alat@saranalatredirect');
