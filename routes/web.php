@@ -28,6 +28,7 @@ Route::post('/profil/{id}', 'Profil@profilupdate');
 //alat
 Route::get('/alat', 'alat@tools')->name('tools');
 Route::get('/saranalatredirect', 'alat@saranalatredirect');
+Route::get('/upvoteredirect', 'alat@upvoteredirect');
 Route::post('/buatalat', 'alat@actionBuat');
 Route::post('/upvote', 'alat@actionUpvote');
 

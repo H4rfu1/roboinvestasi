@@ -74,14 +74,17 @@
 				->select('upvotesaranalat.*', 'users.name','saranalat.*')
 				->where('upvotesaranalat.id_saranalat', $d->id_saranalat)
 				->count();
-				$count = DB::table('upvotesaranalat')
-				->join('users', 'upvotesaranalat.id_pengupvote', '=', 'users.id')
-				->join('saranalat', 'upvotesaranalat.id_saranalat', '=', 'saranalat.id_saranalat')
-				->select('upvotesaranalat.*', 'users.name','saranalat.*')
-				->where('upvotesaranalat.id_saranalat', $d->id_saranalat)
-				->where('users.id', Auth::user()->id)
-				->count();
-        
+        if(Auth::check()){
+          $count = DB::table('upvotesaranalat')
+          ->join('users', 'upvotesaranalat.id_pengupvote', '=', 'users.id')
+          ->join('saranalat', 'upvotesaranalat.id_saranalat', '=', 'saranalat.id_saranalat')
+          ->select('upvotesaranalat.*', 'users.name','saranalat.*')
+          ->where('upvotesaranalat.id_saranalat', $d->id_saranalat)
+          ->where('users.id', Auth::user()->id)
+          ->count();
+        }else{
+          $count = false;
+        }
 			@endphp
           <div class="col-sm-6 col-lg-4 col-xl-3 py-3">
             <div class="features">
@@ -166,11 +169,13 @@
         e.preventDefault();
         console.log({{$login ? 'true' : 'false'}} );
         if ('{{$login ? "true" : "false"}}' == 'false') {
-          window.location.href = '{{url("saranalatredirect")}}'; //using a named route
+          window.location.href = '{{url("upvoteredirect")}}'; //using a named route
         }
           // console.log('klik');
 					let id = $(this).data('id');
+          @if(Auth::check())
 					let user = "{{Auth::user()->id}}";
+          @endif
         
         $.ajax({
           type: 'post',

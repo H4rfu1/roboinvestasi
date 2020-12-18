@@ -332,6 +332,14 @@ class alat extends Controller
             return redirect('login')->with('status', 'Robo mengingatkan, kamu harus Login sebelum Mengakses fitur Tambah Saran Alat');
         }
     }
+    public function upvoteredirect(Request $request)
+    {
+        if (Auth::check()) {
+            return view('tools');
+        }else{
+            return redirect('login')->with('status', 'Robo mengingatkan, kamu harus Login sebelum Mengakses fitur Upvote');
+        }
+    }
 
     public function actionUpvote(Request $request)
     {
