@@ -28,24 +28,26 @@
           <a class="btn btn-secondary" href="/blog/buat" >Buat artikel</a>
         </div>
       </div>
+
+      
+      <div class="row my-5" >
       @foreach($get as $li)
-      <div class="row my-5">
-        <div class="col-lg-4 py-3">
+        <div class="col-lg-4 py-3" >
           <div class="card-blog">
             <div class="header">
               <div class="post-thumb">
-                <img src="{{ url($li->foto) }}" alt="">
+                <img src="{{ url($li->foto) }}" alt="" width="100%">
               </div>
             </div>
             <div class="body">
               <h5 class="post-title"><a href="/blog/detail/{{ $li->id }}">{{ $li->judul }}</a></h5>
-              <div class="post-date">Posted on <a href="#">{{ $li->waktu }}</a></div>
+              <div class="post-date">Posted on <a href="#">{{date('d M y | H:i A', strtotime($li->waktu))}}</a></div>
             </div>
           </div>
         </div>
       @endforeach
         
-        <div class="col-lg-4 py-3">
+        <!-- <div class="col-lg-4 py-3" style="display: inline-block;">
           <div class="card-blog">
             <div class="header">
               <div class="post-thumb">
@@ -86,62 +88,6 @@
             </div>
           </div>
         </div>
-        
-        <div class="col-lg-4 py-3">
-          <div class="card-blog">
-            <div class="header">
-              <div class="post-thumb">
-                <img src="../assets/img/blog/blog-5.jpg" alt="">
-              </div>
-            </div>
-            <div class="body">
-              <h5 class="post-title"><a href="blog-details.html">Source of Content Inspiration</a></h5>
-              <div class="post-date">Posted on <a href="#">27 Jan 2020</a></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 py-3">
-          <div class="card-blog">
-            <div class="header">
-              <div class="post-thumb">
-                <img src="../assets/img/blog/blog-6.jpg" alt="">
-              </div>
-            </div>
-            <div class="body">
-              <h5 class="post-title"><a href="blog-details.html">Source of Content Inspiration</a></h5>
-              <div class="post-date">Posted on <a href="#">27 Jan 2020</a></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 py-3">
-          <div class="card-blog">
-            <div class="header">
-              <div class="post-thumb">
-                <img src="../assets/img/blog/blog-1.jpg" alt="">
-              </div>
-            </div>
-            <div class="body">
-              <h5 class="post-title"><a href="blog-details.html">Source of Content Inspiration</a></h5>
-              <div class="post-date">Posted on <a href="#">27 Jan 2020</a></div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="col-lg-4 py-3">
-          <div class="card-blog">
-            <div class="header">
-              <div class="post-thumb">
-                <img src="../assets/img/blog/blog-2.jpg" alt="">
-              </div>
-            </div>
-            <div class="body">
-              <h5 class="post-title"><a href="blog-details.html">Source of Content Inspiration</a></h5>
-              <div class="post-date">Posted on <a href="#">27 Jan 2020</a></div>
-            </div>
-          </div>
-        </div>
 
         <div class="col-lg-4 py-3">
           <div class="card-blog">
@@ -155,7 +101,7 @@
               <div class="post-date">Posted on <a href="#">27 Jan 2020</a></div>
             </div>
           </div>
-        </div>
+        </div> -->
 
       </div>
 
