@@ -101,7 +101,7 @@
 					</div>
 					<div class="comment-body">
 					<h3>{{$k->name}}</h3>
-					<div class="meta">{{$k->tanggal_komen}}</div>
+					<div class="meta">{{date('d M y | H:i A', strtotime($k->tanggal_komen))}}</div>
 					<p>{{$k->komentar}}</p>
 					</div>
 				</li>
