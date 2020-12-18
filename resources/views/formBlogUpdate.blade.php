@@ -30,7 +30,7 @@
 
         <div class="row my-5">
             @foreach($get as $li)
-            <form action="/postUpdate" method="post" enctype="multipart/form-data" style="width: 50%; margin: 0 25% 0 25%;">
+            <form action="{{url('/postUpdate')}}" method="post" enctype="multipart/form-data" style="width: 50%; margin: 0 25% 0 25%;">
             @csrf
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Judul</label>
@@ -50,7 +50,7 @@
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary">Tambah</button>
-                    <a href="./" class="btn btn-danger">Batal</a>
+                    <a href="{{url('/')}}" class="btn btn-danger">Batal</a>
                 </div>
             </form>
             @endforeach

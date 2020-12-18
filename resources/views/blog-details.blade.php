@@ -1,17 +1,18 @@
 @extends('layouts.temp')
 
-@section('title', 'Blog detail')
+@section('title', 'Blog Detail')
+@section('breadcrumb', 'Blog Detail')
+@section('title2', 'Blog Detail')
 
 @section('page')
-
 @foreach($get as $li)
 @endforeach
   <div class="page-section pt-5">
     <div class="container">
       <nav aria-label="Breadcrumb">
         <ul class="breadcrumb p-0 mb-0 bg-transparent">
-          <li class="breadcrumb-item"><a href="/">Home</a></li>
-          <li class="breadcrumb-item"><a href="/blog">Blog</a></li>
+          <li class="breadcrumb-item"><a href="{{url('/')}}">Home</a></li>
+          <li class="breadcrumb-item"><a href="{{url('/blog')}}">Blog</a></li>
           <li class="breadcrumb-item active">{{ $li->judul }}</li>
         </ul>
       </nav>

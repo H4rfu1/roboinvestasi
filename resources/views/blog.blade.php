@@ -25,7 +25,7 @@
           </form>
         </div>
         <div class="col-sm-2 text-sm-right">
-          <a class="btn btn-secondary" href="/blog/buat" >Buat artikel</a>
+          <a class="btn btn-secondary" href="{{url('/blog/buat')}}" >Buat artikel</a>
         </div>
       </div>
 
@@ -40,7 +40,7 @@
               </div>
             </div>
             <div class="body">
-              <h5 class="post-title"><a href="/blog/detail/{{ $li->id }}">{{ $li->judul }}</a></h5>
+              <h5 class="post-title"><a href="{{url('/blog/detail/'.$li->id)}}">{{ $li->judul }}</a></h5>
               <div class="post-date">Posted on <a href="#">{{date('d M y | H:i A', strtotime($li->waktu))}}</a></div>
             </div>
           </div>
