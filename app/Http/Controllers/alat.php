@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\DB;
 
 use App\m_saranalat;
 use App\m_upvotesaranalat;
@@ -18,13 +19,21 @@ class alat extends Controller
      */
     public function tools()
     {
-        $data = m_saranalat::orderBy('tanggal_saranalat', 'DESC')
+        $data = DB::select(DB::raw("
+                        SELECT saranalat.*, COUNT(id_upvote ) AS vote_count 
+                        FROM saranalat LEFT JOIN upvotesaranalat 
+                        ON saranalat.id_saranalat  = upvotesaranalat.id_saranalat   
+                        GROUP BY saranalat.id_saranalat,saranalat.nama_alat,saranalat.deskripsi_alat,saranalat.tanggal_saranalat,saranalat.id_pengguna  
+                        order by vote_count DESC
+                    "));
+        // dd($data);
+        $databaru = m_saranalat::orderBy('tanggal_saranalat', 'DESC')
         ->join('users', 'saranalat.id_pengguna', '=', 'users.id')
         ->get();
 
         // dd($data->isEmpty());
         $login = Auth::check();
-        return view('tools', compact('login', 'data'));
+        return view('tools', compact('login', 'data', 'databaru'));
     }
 
     //tools pil reksa

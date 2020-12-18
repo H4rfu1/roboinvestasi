@@ -55,67 +55,257 @@
     </div> <!-- .container -->
   </div> <!-- .page-section -->
 
+  
+
   <div class="page-section bg-light">
     <div class="container">
       <div class="text-center">
-        <div class="subhead">Saran Alat </div>
+    <div class="subhead">Saran Alat </div>
         <h2 class="title-section">Sarankan Alat untuk Dibuat</h2>
-        <button type="button" class="btn btn-primary saran_alat" data-toggle="modal" data-target="#exampleModalCenter">
+        <button type="button" class="btn btn-primary saran_alat mb-3" data-toggle="modal" data-target="#exampleModalCenter">
           Post Saran
         </button>
-
+        <div id="myCarousel" class="carousel slide m-0 p-0" data-interval="false">
         <p class="mt-3">Saran Alat Terpopuler</p>
-        <div class="divider mx-auto"></div>
-        <div class="row">
-        @foreach($data as $d)
-			@php
-      $allcount = DB::table('upvotesaranalat')
-				->join('saranalat', 'upvotesaranalat.id_saranalat', '=', 'saranalat.id_saranalat')
-				->select('upvotesaranalat.*', 'users.name','saranalat.*')
-				->where('upvotesaranalat.id_saranalat', $d->id_saranalat)
-				->count();
-        if(Auth::check()){
-          $count = DB::table('upvotesaranalat')
-          ->join('users', 'upvotesaranalat.id_pengupvote', '=', 'users.id')
-          ->join('saranalat', 'upvotesaranalat.id_saranalat', '=', 'saranalat.id_saranalat')
-          ->select('upvotesaranalat.*', 'users.name','saranalat.*')
-          ->where('upvotesaranalat.id_saranalat', $d->id_saranalat)
-          ->where('users.id', Auth::user()->id)
-          ->count();
-        }else{
-          $count = false;
-        }
-			@endphp
-          <div class="col-sm-6 col-lg-4 col-xl-3 py-3">
-            <div class="features">
-              <div class="header mb-3">
-                <div style="position: absolute; top: 0px; right: 0px; font-size: 18px;"> <a href="" class="send_upvote" id="upvote{{$d->id_saranalat}}" data-id="{{$d->id_saranalat}}" >
-                  @if($count)
-                   <span>{{$allcount}}</span> <i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
-                  @else
-                  <span>{{$allcount}}</span> <i class="fa fa-arrow-up" aria-hidden="true"></i>
-                  @endif
-                </a></div> 
-                <span class="mai-business"></span>
-              </div>
-              <h5>{{$d->nama_alat}}</h5>
-              <p>{{$d->deskripsi_alat}}</p>
-            </div>
+        <div class="divider mx-auto m-0 p-0"></div>
+            <ol class="carousel-indicators">
+              @php 
+              $jumlah = count($data) / 4;
+              @endphp
+            @for($i = 0; $i < $jumlah; $i++)
+              <li data-target="#myCarousel" data-slide-to="$i" class="@if($i == 0){{'active'}}@endif"></li>
+            @endfor
+            </ol>
+            <div class="carousel-inner m-0 p-0">
+            @foreach($data as $d)
+                @php
+                $allcount = DB::table('upvotesaranalat')
+                  ->join('saranalat', 'upvotesaranalat.id_saranalat', '=', 'saranalat.id_saranalat')
+                  ->select('upvotesaranalat.*', 'users.name','saranalat.*')
+                  ->where('upvotesaranalat.id_saranalat', $d->id_saranalat)
+                  ->count();
+                  if(Auth::check()){
+                    $count = DB::table('upvotesaranalat')
+                    ->join('users', 'upvotesaranalat.id_pengupvote', '=', 'users.id')
+                    ->join('saranalat', 'upvotesaranalat.id_saranalat', '=', 'saranalat.id_saranalat')
+                    ->select('upvotesaranalat.*', 'users.name','saranalat.*')
+                    ->where('upvotesaranalat.id_saranalat', $d->id_saranalat)
+                    ->where('users.id', Auth::user()->id)
+                    ->count();
+                  }else{
+                    $count = false;
+                  }
+                @endphp
+
+                @if($loop->last && ($loop->iteration -1) % 4 == 0)
+                <div class="carousel-item py-5 @if($loop->iteration == 1){{'active'}}@endif">
+                  <div class="row">
+                  <div class="col-sm-6 col-lg-4 col-xl-3 py-3">
+                    <div class="features">
+                      <div class="header mb-3">
+                        <div style="position: absolute; top: 0px; right: 20px; font-size: 18px;"> <a href="" class="send_upvote" id="upvote{{$d->id_saranalat}}" data-id="{{$d->id_saranalat}}" >
+                          @if($count)
+                          <span>{{$allcount}}</span> <i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
+                          @else
+                          <span>{{$allcount}}</span> <i class="fa fa-arrow-up" aria-hidden="true"></i>
+                          @endif
+                        </a></div> 
+                        <span class="mai-business"></span>
+                      </div>
+                      <h5>{{$d->nama_alat}}</h5>
+                      <p>{{$d->deskripsi_alat}}</p>
+                    </div>
+                  </div>
+                  </div>
+                </div>
+                @elseif(($loop->iteration -1) % 4 == 0)
+                <div class="carousel-item py-5 @if($loop->iteration == 1){{'active'}}@endif">
+                  <div class="row">
+                  <div class="col-sm-6 col-lg-4 col-xl-3 py-3">
+                    <div class="features">
+                      <div class="header mb-3">
+                        <div style="position: absolute; top: 0px; right: 20px; font-size: 18px;"> <a href="" class="send_upvote" id="upvote{{$d->id_saranalat}}" data-id="{{$d->id_saranalat}}" >
+                          @if($count)
+                          <span>{{$allcount}}</span> <i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
+                          @else
+                          <span>{{$allcount}}</span> <i class="fa fa-arrow-up" aria-hidden="true"></i>
+                          @endif
+                        </a></div> 
+                        <span class="mai-business"></span>
+                      </div>
+                      <h5>{{$d->nama_alat}}</h5>
+                      <p>{{$d->deskripsi_alat}}</p>
+                    </div>
+                  </div>
+                @elseif($loop->iteration % 4 == 0 || $loop->last)
+                <div class="col-sm-6 col-lg-4 col-xl-3 py-3">
+                    <div class="features">
+                      <div class="header mb-3">
+                        <div style="position: absolute; top: 0px; right: 20px; font-size: 18px;"> <a href="" class="send_upvote" id="upvote{{$d->id_saranalat}}" data-id="{{$d->id_saranalat}}" >
+                          @if($count)
+                          <span>{{$allcount}}</span> <i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
+                          @else
+                          <span>{{$allcount}}</span> <i class="fa fa-arrow-up" aria-hidden="true"></i>
+                          @endif
+                        </a></div> 
+                        <span class="mai-business"></span>
+                      </div>
+                      <h5>{{$d->nama_alat}}</h5>
+                      <p>{{$d->deskripsi_alat}}</p>
+                    </div>
+                  </div>
+                  </div>
+                </div>
+                @else
+                <div class="col-sm-6 col-lg-4 col-xl-3 py-3">
+                    <div class="features">
+                      <div class="header mb-3">
+                        <div style="position: absolute; top: 0px; right: 20px; font-size: 18px;"> <a href="" class="send_upvote" id="upvote{{$d->id_saranalat}}" data-id="{{$d->id_saranalat}}" >
+                          @if($count)
+                          <span>{{$allcount}}</span> <i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
+                          @else
+                          <span>{{$allcount}}</span> <i class="fa fa-arrow-up" aria-hidden="true"></i>
+                          @endif
+                        </a></div> 
+                        <span class="mai-business"></span>
+                      </div>
+                      <h5>{{$d->nama_alat}}</h5>
+                      <p>{{$d->deskripsi_alat}}</p>
+                    </div>
+                  </div>
+                @endif
+              @endforeach
+
+            <a class="carousel-control-prev pr-5" href="#myCarousel" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
           </div>
-          @endforeach
         </div>
 
-        <p>Saran Alat Terbaru</p>
-        <div class="divider mx-auto"></div>
-        <div class="row">
-          <div class="col-sm-6 col-lg-4 col-xl-3 py-3">
-            <div class="features">
-              <div class="header mb-3">
-                <span class="mai-business"></span>
-              </div>
-              <h5>OnSite SEO</h5>
-              <p>We analyse your website's structure, internal architecture & other key</p>
-            </div>
+        <div id="myCarousel2" class="carousel slide m-0 p-0" data-interval="false">
+        <p class="mt-3">Saran Alat Terbaru</p>
+        <div class="divider mx-auto m-0 p-0"></div>
+            <ol class="carousel-indicators">
+              @php 
+              $jumlah = count($databaru) / 4;
+              @endphp
+            @for($i = 0; $i < $jumlah; $i++)
+              <li data-target="#myCarousel2" data-slide-to="$i" class="@if($i == 0){{'active'}}@endif"></li>
+            @endfor
+            </ol>
+            <div class="carousel-inner">
+            @foreach($databaru as $d)
+                @php
+                $allcount = DB::table('upvotesaranalat')
+                  ->join('saranalat', 'upvotesaranalat.id_saranalat', '=', 'saranalat.id_saranalat')
+                  ->select('upvotesaranalat.*', 'users.name','saranalat.*')
+                  ->where('upvotesaranalat.id_saranalat', $d->id_saranalat)
+                  ->count();
+                  if(Auth::check()){
+                    $count = DB::table('upvotesaranalat')
+                    ->join('users', 'upvotesaranalat.id_pengupvote', '=', 'users.id')
+                    ->join('saranalat', 'upvotesaranalat.id_saranalat', '=', 'saranalat.id_saranalat')
+                    ->select('upvotesaranalat.*', 'users.name','saranalat.*')
+                    ->where('upvotesaranalat.id_saranalat', $d->id_saranalat)
+                    ->where('users.id', Auth::user()->id)
+                    ->count();
+                  }else{
+                    $count = false;
+                  }
+                @endphp
+
+                @if($loop->last && ($loop->iteration -1) % 4 == 0)
+                <div class="carousel-item py-5 @if($loop->iteration == 1){{'active'}}@endif">
+                  <div class="row">
+                  <div class="col-sm-6 col-lg-4 col-xl-3 py-3">
+                    <div class="features">
+                      <div class="header mb-3">
+                        <div style="position: absolute; top: 0px; right: 20px; font-size: 18px;"> <a href="" class="send_upvote" id="upvote{{$d->id_saranalat}}" data-id="{{$d->id_saranalat}}" >
+                          @if($count)
+                          <span>{{$allcount}}</span> <i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
+                          @else
+                          <span>{{$allcount}}</span> <i class="fa fa-arrow-up" aria-hidden="true"></i>
+                          @endif
+                        </a></div> 
+                        <span class="mai-business"></span>
+                      </div>
+                      <h5>{{$d->nama_alat}}</h5>
+                      <p>{{$d->deskripsi_alat}}</p>
+                    </div>
+                  </div>
+                  </div>
+                </div>
+                @elseif(($loop->iteration -1) % 4 == 0)
+                <div class="carousel-item py-5 @if($loop->iteration == 1){{'active'}}@endif">
+                  <div class="row">
+                  <div class="col-sm-6 col-lg-4 col-xl-3 py-3">
+                    <div class="features">
+                      <div class="header mb-3">
+                        <div style="position: absolute; top: 0px; right: 20px; font-size: 18px;"> <a href="" class="send_upvote" id="upvote{{$d->id_saranalat}}" data-id="{{$d->id_saranalat}}" >
+                          @if($count)
+                          <span>{{$allcount}}</span> <i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
+                          @else
+                          <span>{{$allcount}}</span> <i class="fa fa-arrow-up" aria-hidden="true"></i>
+                          @endif
+                        </a></div> 
+                        <span class="mai-business"></span>
+                      </div>
+                      <h5>{{$d->nama_alat}}</h5>
+                      <p>{{$d->deskripsi_alat}}</p>
+                    </div>
+                  </div>
+                @elseif($loop->iteration % 4 == 0 || $loop->last)
+                <div class="col-sm-6 col-lg-4 col-xl-3 py-3">
+                    <div class="features">
+                      <div class="header mb-3">
+                        <div style="position: absolute; top: 0px; right: 20px; font-size: 18px;"> <a href="" class="send_upvote" id="upvote{{$d->id_saranalat}}" data-id="{{$d->id_saranalat}}" >
+                          @if($count)
+                          <span>{{$allcount}}</span> <i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
+                          @else
+                          <span>{{$allcount}}</span> <i class="fa fa-arrow-up" aria-hidden="true"></i>
+                          @endif
+                        </a></div> 
+                        <span class="mai-business"></span>
+                      </div>
+                      <h5>{{$d->nama_alat}}</h5>
+                      <p>{{$d->deskripsi_alat}}</p>
+                    </div>
+                  </div>
+                  </div>
+                </div>
+                @else
+                <div class="col-sm-6 col-lg-4 col-xl-3 py-3">
+                    <div class="features">
+                      <div class="header mb-3">
+                        <div style="position: absolute; top: 0px; right: 20px; font-size: 18px;"> <a href="" class="send_upvote" id="upvote{{$d->id_saranalat}}" data-id="{{$d->id_saranalat}}" >
+                          @if($count)
+                          <span>{{$allcount}}</span> <i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
+                          @else
+                          <span>{{$allcount}}</span> <i class="fa fa-arrow-up" aria-hidden="true"></i>
+                          @endif
+                        </a></div> 
+                        <span class="mai-business"></span>
+                      </div>
+                      <h5>{{$d->nama_alat}}</h5>
+                      <p>{{$d->deskripsi_alat}}</p>
+                    </div>
+                  </div>
+                @endif
+              @endforeach
+
+            <a class="carousel-control-prev pr-5" href="#myCarousel2" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#myCarousel2" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
           </div>
         </div>
 

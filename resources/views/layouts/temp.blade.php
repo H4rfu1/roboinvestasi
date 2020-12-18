@@ -58,6 +58,14 @@
         }
       };
     </script>
+    <style>
+      .carousel-indicators li {
+    border-radius: 12px;
+    width: 12px;
+    height: 12px;
+    background-color: #009747;
+}
+    </style>
 @endif
 
   <style>
