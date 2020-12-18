@@ -8,7 +8,7 @@
       <div class="row align-items-center">
         <div class="col-lg-6 py-3 wow fadeInUp">
           <span class="subhead">Tentang Kami</span>
-          <h2 class="title-section">RoboInvestasi #1 Berkomitmen Memberikan yang Terbaik</h2>
+          <h2 class="title-section">RoboInvestasi #1 Berkomitmen Menghadirkan yang Terbaik</h2>
           <div class="divider"></div>
 
           <p>Kami akan membantu pengguna mengenal lebih jauh mmengenal topik investasi. Mulai dari definisi, alasan, tujuan, manfaat dan bagaimana cara berinvestasi yang baik.</p>

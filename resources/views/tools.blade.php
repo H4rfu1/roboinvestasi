@@ -62,7 +62,7 @@
       <div class="text-center">
     <div class="subhead">Saran Alat </div>
         <h2 class="title-section">Sarankan Alat untuk Dibuat</h2>
-        <button type="button" class="btn btn-primary saran_alat mb-3" data-toggle="modal" data-target="#exampleModalCenter">
+        <button type="button" id="tambahsaran" class="btn btn-primary saran_alat mb-3" data-toggle="modal" data-target="#exampleModalCenter">
           Post Saran
         </button>
         <div id="myCarousel" class="carousel slide m-0 p-0" data-interval="false">
@@ -92,8 +92,13 @@
                     ->where('upvotesaranalat.id_saranalat', $d->id_saranalat)
                     ->where('users.id', Auth::user()->id)
                     ->count();
+
+                    if($d->id_pengguna == Auth::user()->id){
+                      $milik = true;
+                    }
                   }else{
                     $count = false;
+                    $milik = false;
                   }
                 @endphp
 
@@ -103,13 +108,24 @@
                   <div class="col-sm-6 col-lg-4 col-xl-3 py-3">
                     <div class="features">
                       <div class="header mb-3">
-                        <div style="position: absolute; top: 0px; right: 20px; font-size: 18px;"> <a href="" class="send_upvote" id="upvote{{$d->id_saranalat}}" data-id="{{$d->id_saranalat}}" >
+                        <div style="position: absolute; top: 0px; right: 20px; font-size: 18px;"> 
+                        <a href="" class="send_upvote" id="upvote{{$d->id_saranalat}}" data-id="{{$d->id_saranalat}}" >
                           @if($count)
                           <span>{{$allcount}}</span> <i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
                           @else
                           <span>{{$allcount}}</span> <i class="fa fa-arrow-up" aria-hidden="true"></i>
                           @endif
                         </a></div> 
+                        @if($milik)
+                        <div style="position: absolute; top: 0px; left: 20px; font-size: 18px;"> 
+                        <a href="{{url('deletesaran/'.$d->id_saranalat)}}" class="sampah">
+                          <i class="fa fa-trash" aria-hidden="true"></i>
+                        </a>
+                        <a href="" class="pensil" data-toggle="modal" data-id="{{$d->id_saranalat}}" data-target="#exampleModalCenter">
+                          <i class="fa fa-pencil" aria-hidden="true"></i>
+                        </a>
+                      </div>
+                      @endif
                         <span class="mai-business"></span>
                       </div>
                       <h5>{{$d->nama_alat}}</h5>
@@ -124,13 +140,24 @@
                   <div class="col-sm-6 col-lg-4 col-xl-3 py-3">
                     <div class="features">
                       <div class="header mb-3">
-                        <div style="position: absolute; top: 0px; right: 20px; font-size: 18px;"> <a href="" class="send_upvote" id="upvote{{$d->id_saranalat}}" data-id="{{$d->id_saranalat}}" >
+                      <div style="position: absolute; top: 0px; right: 20px; font-size: 18px;"> 
+                      <a href="" class="send_upvote" id="upvote{{$d->id_saranalat}}" data-id="{{$d->id_saranalat}}" >
                           @if($count)
                           <span>{{$allcount}}</span> <i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
                           @else
                           <span>{{$allcount}}</span> <i class="fa fa-arrow-up" aria-hidden="true"></i>
                           @endif
                         </a></div> 
+                        @if($milik)
+                        <div style="position: absolute; top: 0px; left: 20px; font-size: 18px;"> 
+                        <a href="{{url('deletesaran/'.$d->id_saranalat)}}" class="sampah">
+                          <i class="fa fa-trash" aria-hidden="true"></i>
+                        </a>
+                        <a href="" class="pensil" data-toggle="modal" data-id="{{$d->id_saranalat}}"  data-target="#exampleModalCenter">
+                          <i class="fa fa-pencil" aria-hidden="true"></i>
+                        </a>
+                      </div>
+                      @endif
                         <span class="mai-business"></span>
                       </div>
                       <h5>{{$d->nama_alat}}</h5>
@@ -141,13 +168,24 @@
                 <div class="col-sm-6 col-lg-4 col-xl-3 py-3">
                     <div class="features">
                       <div class="header mb-3">
-                        <div style="position: absolute; top: 0px; right: 20px; font-size: 18px;"> <a href="" class="send_upvote" id="upvote{{$d->id_saranalat}}" data-id="{{$d->id_saranalat}}" >
+                        <div style="position: absolute; top: 0px; right: 20px; font-size: 18px;"> 
+                        <a href="" class="send_upvote" id="upvote{{$d->id_saranalat}}" data-id="{{$d->id_saranalat}}" >
                           @if($count)
                           <span>{{$allcount}}</span> <i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
                           @else
                           <span>{{$allcount}}</span> <i class="fa fa-arrow-up" aria-hidden="true"></i>
                           @endif
                         </a></div> 
+                        @if($milik)
+                        <div style="position: absolute; top: 0px; left: 20px; font-size: 18px;"> 
+                        <a href="{{url('deletesaran/'.$d->id_saranalat)}}" class="sampah">
+                          <i class="fa fa-trash" aria-hidden="true"></i>
+                        </a>
+                        <a href="" class="pensil" data-toggle="modal" data-id="{{$d->id_saranalat}}"  data-target="#exampleModalCenter">
+                          <i class="fa fa-pencil" aria-hidden="true"></i>
+                        </a>
+                      </div>
+                      @endif
                         <span class="mai-business"></span>
                       </div>
                       <h5>{{$d->nama_alat}}</h5>
@@ -160,13 +198,24 @@
                 <div class="col-sm-6 col-lg-4 col-xl-3 py-3">
                     <div class="features">
                       <div class="header mb-3">
-                        <div style="position: absolute; top: 0px; right: 20px; font-size: 18px;"> <a href="" class="send_upvote" id="upvote{{$d->id_saranalat}}" data-id="{{$d->id_saranalat}}" >
+                        <div style="position: absolute; top: 0px; right: 20px; font-size: 18px;"> 
+                        <a href="" class="send_upvote" id="upvote{{$d->id_saranalat}}" data-id="{{$d->id_saranalat}}" >
                           @if($count)
                           <span>{{$allcount}}</span> <i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
                           @else
                           <span>{{$allcount}}</span> <i class="fa fa-arrow-up" aria-hidden="true"></i>
                           @endif
                         </a></div> 
+                        @if($milik)
+                        <div style="position: absolute; top: 0px; left: 20px; font-size: 18px;"> 
+                        <a href="{{url('deletesaran/'.$d->id_saranalat)}}" class="sampah">
+                          <i class="fa fa-trash" aria-hidden="true"></i>
+                        </a>
+                        <a href="" class="pensil" data-toggle="modal" data-id="{{$d->id_saranalat}}" data-target="#exampleModalCenter">
+                          <i class="fa fa-pencil" aria-hidden="true"></i>
+                        </a>
+                      </div>
+                      @endif
                         <span class="mai-business"></span>
                       </div>
                       <h5>{{$d->nama_alat}}</h5>
@@ -175,15 +224,6 @@
                   </div>
                 @endif
               @endforeach
-
-            <a class="carousel-control-prev pr-5" href="#myCarousel" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
           </div>
         </div>
 
@@ -297,15 +337,6 @@
                   </div>
                 @endif
               @endforeach
-
-            <a class="carousel-control-prev pr-5" href="#myCarousel2" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#myCarousel2" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
           </div>
         </div>
 
@@ -324,7 +355,7 @@
 			<span aria-hidden="true">&times;</span>
 			</button>
 		</div>
-		<form action="{{url('buatalat')}}" method="post">
+		<form id="modalform"action="{{url('buatalat')}}" method="post">
 			@csrf
       @if(Auth::check())
 			<input type="hidden" name="id" value="{{Auth::user()->id}}">
@@ -334,18 +365,18 @@
 					<label class="col-form-label col-md-3 col-sm-3  label-align">Nama Alat<span class="required">*</span></label>
 					<div class="col-md-12 col-sm-12">
             <div id="charNum1" class="badge badge-info float-right mb-1"></div>
-						<input class="form-control" type="text" class='text' onkeyup="countChar1(this)" maxlength="50" name="nama_alat" required='required' autofocus oninvalid="this.setCustomValidity('Tidak boleh kosong')" oninput="setCustomValidity('')"/></div>
+						<input class="form-control" type="text" class='text' onkeyup="countChar1(this)" maxlength="50" id="nama_alat"name="nama_alat" required='required' autofocus oninvalid="this.setCustomValidity('Tidak boleh kosong')" oninput="setCustomValidity('')"/></div>
 				</div>
 				<div class="field item form-group">
 					<label class="col-form-label col-md-3 col-sm-3  label-align">Deskripsi<span class="required">*</span></label>
 					<div class="col-md-12 col-sm-12">
             <div id="charNum2" class="badge badge-info float-right mb-1"></div>
-						<textarea required="required" maxlength="250" name='deskripsi_alat' style="min-width: 100%" onkeyup="countChar2(this)" oninvalid="this.setCustomValidity('Tidak boleh kosong')" oninput="setCustomValidity('')"></textarea></div >
+						<textarea required="required" maxlength="250" id='deskripsi_alat' name='deskripsi_alat' style="min-width: 100%" onkeyup="countChar2(this)" oninvalid="this.setCustomValidity('Tidak boleh kosong')" oninput="setCustomValidity('')"></textarea></div >
 				</div>
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-light" data-dismiss="modal">Batal</button>
-				<button type="submit" class="btn btn-primary">Buat</button>
+				<button type="submit" id="submitmodal" class="btn btn-primary">Buat</button>
 			</div>
 		</form>
 		</div>
@@ -388,6 +419,37 @@
           if ('{{$login ? "true" : "false"}}' == 'false') {
           window.location.href = '{{url("saranalatredirect")}}'; //using a named route
         }
+        });
+
+        $('#tambahsaran').on('click', function (e) {
+          e.preventDefault();
+          $("#nama_alat").val('');
+          $("#deskripsi_alat").text('');
+          $("#submitmodal").text("Tambah");
+          $("#submitmodal").attr('action', "{{url('buatalat')}}");
+        });
+
+        $('.pensil').on('click', function (e) {
+          e.preventDefault();
+          let id = $(this).data('id');
+          console.log(id);
+
+          $.ajax({
+          type: 'get',
+          url: '{{url("getdatasaran")}}',
+          data: {
+              _token: CSRF_TOKEN,
+              id:id
+            },
+            success: function (response) {
+              var response = JSON.parse(response);
+                $("#modalform").attr('action', "{{url('ubahsaranalat')}}/"+response['id_saranalat']);
+                $("#nama_alat").val(response['nama_alat']);
+                $("#deskripsi_alat").text(response['deskripsi_alat']);
+                $("#submitmodal").text("Ubah");
+                console.log(response);
+              }
+            });
         });
         
     });

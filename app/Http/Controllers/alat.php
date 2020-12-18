@@ -346,7 +346,7 @@ class alat extends Controller
         if (Auth::check()) {
             return view('tools');
         }else{
-            return redirect('login')->with('status', 'Robo mengingatkan, kamu harus Login sebelum Mengakses fitur Upvote');
+            return redirect('login')->with('status', 'Robo mengingatkan, kamu harus Login sebelum melakukan upvote');
         }
     }
 
@@ -381,6 +381,32 @@ class alat extends Controller
         }
         
     }
+    public function deletesaran($id)
+    {
+        //metode sistem pakar
+        m_saranalat::where('id_saranalat', $id)->delete();
+        return redirect('alat')->with('status', 'Berhasil dihapus Robo');
+    }
+
+    public function getdatasaran(Request $request)
+    {
+        $data_saranalat = DB::table('saranalat')
+            ->where('saranalat.id_saranalat', $request->id)
+            ->first();
+            echo json_encode($data_saranalat);
+    }
+
+    public function ubahsaranalat(Request $request, $id)
+    {
+        //metode sistem pakar
+        m_saranalat::where('id_saranalat', $id)
+        ->update([
+            'nama_alat' => $request->nama_alat,
+            'deskripsi_alat' => $request->deskripsi_alat,
+            'tanggal_saranalat' => date("Y-m-d H:i:s")
+        ]);
+        return redirect('alat')->with('status', 'Saran Alat Kamu Berhasil Robo Simpan');
+    }
     public function actionBuat(Request $request)
     {
         //metode sistem pakar
@@ -390,7 +416,7 @@ class alat extends Controller
             'tanggal_saranalat' => date("Y-m-d H:i:s"),
             'id_pengguna' => $request->id
         ]);
-        return redirect('alat')->with('status', 'Saran Alat Kamu Berhasil Robo Simpan');
+        return redirect('alat')->with('status', 'Saran Alat Kamu Berhasil Robo Ubah');
     }
 
 }

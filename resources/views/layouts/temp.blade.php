@@ -60,11 +60,34 @@
     </script>
     <style>
       .carousel-indicators li {
-    border-radius: 12px;
-    width: 12px;
-    height: 12px;
-    background-color: #009747;
-}
+        border-radius: 12px;
+        width: 12px;
+        height: 12px;
+        background-color: #009747;
+      }
+      .pensil {
+        text-decoration:none;
+        color: #B3901D;
+      }
+      .pensil:hover {
+        text-decoration:none;
+        color: #E3B724;
+      }
+
+      .sampah {
+        text-decoration:none;
+        color: #B3404B;
+      }
+      .sampah:hover {
+        text-decoration:none;
+        color: #E3525E;
+      }
+      a{
+        text-decoration:none;
+      }
+      a:hover{
+        text-decoration:none;
+      }
     </style>
 @endif
 

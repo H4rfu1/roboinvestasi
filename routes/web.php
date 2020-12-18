@@ -31,6 +31,9 @@ Route::get('/saranalatredirect', 'alat@saranalatredirect');
 Route::get('/upvoteredirect', 'alat@upvoteredirect');
 Route::post('/buatalat', 'alat@actionBuat');
 Route::post('/upvote', 'alat@actionUpvote');
+Route::get('/getdatasaran', 'alat@getdatasaran');
+Route::post('/ubahsaranalat/{id}', 'alat@ubahsaranalat');
+Route::get('/deletesaran/{id}', 'alat@deletesaran');
 
 //alat pireksa
 Route::get('/alat/pilreksa', 'alat@indexPilReksa')->name('pilreksa');
