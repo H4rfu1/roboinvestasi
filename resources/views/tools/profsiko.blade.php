@@ -13,84 +13,52 @@
             <div class="row d-flex justify-content-center align-items-center">
                 <div class="col-md-8">
                     <form id="regForm" class="shadow p-3 mb-5 bg-white rounded">
-                        <h1 id="register">Form pertanyaan</h1>
-                        <div class="all-steps" id="all-steps"> <span class="step"><i class="fa fa-user"></i></span> <span class="step"><i class="fa fa-map-marker"></i></span> <span class="step"><i class="fa fa-shopping-bag"></i></span> <span class="step"><i class="fa fa-car"></i></span> </div>
-                        <div class="tab">
-                            <h6>Siapa nama kamu?</h6>
-                            <p> <input id="input" placeholder="Nama..." oninput="this.className = ''" id="nama" name="nama"></p>
+                        <p class="card-description">Tujuan Investasi?</p>
+                        <div> 
+                            <input type="radio" name="tujuan_investasi" id="tujuan_investasi1" value="1"/> 
+                            <label class="radio" for="tujuan_investasi1">Radio Button 1</label> 
+                            <input type="radio" name="tujuan_investasi" id="tujuan_investasi2" value="2"/> 
+                            <label for="tujuan_investasi2">Radio Button 2</label> 
+                            <input type="radio" name="tujuan_investasi" id="tujuan_investasi3" value="3"/>
+                            <label for="tujuan_investasi3">Radio Button 3</label> 
                         </div>
-                        <div class="tab">
-                            <h6>Tujuan investasi, Pilih yang menunjukan dirikamu?</h6>
-                            <p> <input id="input" placeholder="Nama..." oninput="this.className = ''" id="nama" name="nama"></p>
+                        <p class="card-description">Besar target persen cuan yang ingin didapat?</p>
+                        <div> 
+                            <input type="radio" name="besar_return" id="besar_return1" value="1"/> 
+                            <label class="radio" for="besar_return1">Radio Button 1</label> 
+                            <input type="radio" name="besar_return" id="besar_return2" value="2"/> 
+                            <label for="besar_return2">Radio Button 2</label> 
+                            <input type="radio" name="besar_return" id="besar_return3" value="3"/>
+                            <label for="besar_return3">Radio Button 3</label> 
                         </div>
-                        <div class="tab">
-                            <h6>jangka Waktu, Pilih yang menunjukan dirikamu?</h6>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
-                                <label class="form-check-label" for="gridRadios1">
-                                    First radio
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
-                                <label class="form-check-label" for="gridRadios2">
-                                    Second radio
-                                </label>
-                            </div>
+                        <p class="card-description">Lama atau Jangka Waktu Investasi?</p>
+                        <div> 
+                            <input type="radio" name="jangka_waktu" id="jangka_waktu1" value="1"/> 
+                            <label class="radio" for="jangka_waktu1">Radio Button 1</label>
+                            <input type="radio" name="jangka_waktu" id="jangka_waktu2" value="2"/> 
+                            <label for="jangka_waktu2">Radio Button 2</label> 
+                            <input type="radio" name="jangka_waktu" id="jangka_waktu3" value="3"/>
+                            <label for="jangka_waktu3">Radio Button 3</label> 
                         </div>
-                        <div class="tab">
-                            <h6>ketergantungan terhadap hasil, Pilih yang menunjukan dirikamu?</h6>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
-                                <label class="form-check-label" for="gridRadios1">
-                                    First radio
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
-                                <label class="form-check-label" for="gridRadios2">
-                                    Second radio
-                                </label>
-                            </div>
+                        <p class="card-description">Find the custom radio button for your projec</p>
+                        <div> 
+                            <input type="radio" name="toleransi_resiko" id="toleransi_resiko1" value="1"/> 
+                            <label class="radio" for="toleransi_resiko1">Radio Button 1</label> 
+                            <input type="radio" name="toleransi_resiko" id="toleransi_resiko2" value="2"/> 
+                            <label for="toleransi_resiko2">Radio Button 2</label> 
+                            <input type="radio" name="toleransi_resiko" id="toleransi_resiko3" value="3"/>
+                            <label for="toleransi_resiko3">Radio Button 3</label> 
                         </div>
-                        <div class="tab">
-                            <h6>toleransi resiko, Pilih yang menunjukan dirikamu?</h6>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
-                                <label class="form-check-label" for="gridRadios1">
-                                    First radio
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
-                                <label class="form-check-label" for="gridRadios2">
-                                    Second radio
-                                </label>
-                            </div>
+                        <p class="card-description">Find the custom radio button for your project</p>
+                        <div> 
+                            <input type="radio" name="ketergantungan_hasil" id="ketergantungan_hasil1" value="1"/> 
+                            <label class="radio" for="ketergantungan_hasil1">Radio Button 1</label> 
+                            <input type="radio" name="ketergantungan_hasil" id="ketergantungan_hasil2" value="2"/> 
+                            <label for="ketergantungan_hasil2">Radio Button 2</label> 
+                            <input type="radio" name="ketergantungan_hasil" id="ketergantungan_hasil3" value="3"/>
+                            <label for="ketergantungan_hasil3">Radio Button 3</label> 
                         </div>
-                        <div class="tab">
-                            <h6>penurunan investasi, Pilih yang menunjukan dirikamu?</h6>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
-                                <label class="form-check-label" for="gridRadios1">
-                                    First radio
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
-                                <label class="form-check-label" for="gridRadios2">
-                                    Second radio
-                                </label>
-                            </div>
-                        </div>
-                        <div class="thanks-message text-center" id="text-message"> <img src="https://i.imgur.com/O18mJ1K.png" width="100" class="mb-4">
-                            <h6>Pilih yang menunjukan dirikamu?</h6>
-                            <button class="btn btn-primary send_btn">Kirim</button>
-                        </div>
-                        <div style="overflow:auto;" id="nextprevious">
-                            <div style="float:right;"> <button type="button" id="prevBtn" onclick="nextPrev(-1)"><i class="fa fa-angle-double-left"></i></button> <button type="button" id="nextBtn" onclick="nextPrev(1)"><i class="fa fa-angle-double-right"></i></button> </div>
-                        </div>
-                        <div class="clearfix"></div>
+                        <input type="submit" class="btn btn-primary mt-3 send_btn">
                     </form>
                 </div>
             </div>
@@ -102,8 +70,8 @@
                 $('.send_btn').on('click', function (e) {
 					e.preventDefault();
                     console.log('klik');
-                    let nama = $("#nama").val();
-                    console.log(nama);
+                    let nilai = document.querySelector('input[name="toleransi_resiko"]:checked').value;
+                    console.log(nilai);
                 $.ajax({
                 type: 'post',
 				url: '{{url("roboprofsiko")}}',

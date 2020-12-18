@@ -89,6 +89,35 @@
         text-decoration:none;
       }
     </style>
+@elseif(Route::current()->getName() == 'profsiko')
+    <style>
+
+ input[type="radio"] {
+     display: none
+ }
+
+ input[type="radio"]+label:before {
+     content: "";
+     display: inline-block;
+     width: 25px;
+     height: 25px;
+     padding: 6px;
+     margin-right: 3px;
+     background-clip: content-box;
+     border: 2px solid #bbb;
+     background-color: #e7e6e7;
+     border-radius: 50%
+ }
+
+ input[type="radio"]:checked+label:before {
+     background-color: #93e026
+ }
+
+ label {
+     display: flex;
+     align-items: center
+ }
+    </style>
 @endif
 
   <style>
@@ -293,10 +322,7 @@
     $(this).find('[autofocus]').focus();
   });
   </script>
-  
-@if(Route::current()->getName() == 'profsiko')
-  <script src="{{asset('js/profsiko.js')}}"></script>
-@endif
+
 
 @if(Route::current()->getName() == 'contact')
   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAIA_zqjFMsJM_sxP9-6Pde5vVCTyJmUHM&callback=initMap"></script>
