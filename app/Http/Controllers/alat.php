@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 use App\m_saranalat;
+use App\m_upvotesaranalat;
 use Auth;
 
 class alat extends Controller
@@ -17,8 +18,13 @@ class alat extends Controller
      */
     public function tools()
     {
+        $data = m_saranalat::orderBy('tanggal_saranalat', 'DESC')
+        ->join('users', 'saranalat.id_pengguna', '=', 'users.id')
+        ->get();
+
+        // dd($data->isEmpty());
         $login = Auth::check();
-        return view('tools', compact('login'));
+        return view('tools', compact('login', 'data'));
     }
 
     //tools pil reksa
@@ -323,10 +329,41 @@ class alat extends Controller
         if (Auth::check()) {
             return view('tools');
         }else{
-            return redirect('login')->with('status', 'Login terlebih dahulu sebelum Mengakses fitur Tambah Saran Alat');
+            return redirect('login')->with('status', 'Robo mengingatkan, kamu harus Login sebelum Mengakses fitur Tambah Saran Alat');
         }
     }
 
+    public function actionUpvote(Request $request)
+    {
+        $allcount = m_upvotesaranalat::join('saranalat', 'upvotesaranalat.id_saranalat', '=', 'saranalat.id_saranalat')
+        ->where('upvotesaranalat.id_saranalat', $request->id)
+        ->count();
+        $count = m_upvotesaranalat::join('saranalat', 'upvotesaranalat.id_saranalat', '=', 'saranalat.id_saranalat')
+        ->join('users', 'upvotesaranalat.id_pengupvote', '=', 'users.id')
+        ->where('upvotesaranalat.id_saranalat', $request->id)
+        ->where('users.id', $request->user)
+        ->count();
+        $data = m_upvotesaranalat::join('saranalat', 'upvotesaranalat.id_saranalat', '=', 'saranalat.id_saranalat')
+        ->join('users', 'upvotesaranalat.id_pengupvote', '=', 'users.id')
+        ->where('upvotesaranalat.id_saranalat', $request->id)
+        ->where('users.id', $request->user)
+        ->first();
+        // dd($data);
+        
+        if ($count > 0){
+                m_upvotesaranalat::where('id_upvote', $data->id_upvote )->delete();
+                echo '<span>'.($allcount-1).'</span> <i class="fa fa-arrow-up" aria-hidden="true"></i>';
+
+        }else{          
+            m_upvotesaranalat::create([
+                'id_saranalat' => $request->id,
+                'tanggal_supvote' => date("Y-m-d H:i:s"),
+                'id_pengupvote' => $request->user
+            ]);
+            echo '<span>'.($allcount+1).'</span> <i class="fa fa-arrow-circle-up" aria-hidden="true"></i>';
+        }
+        
+    }
     public function actionBuat(Request $request)
     {
         //metode sistem pakar
@@ -336,7 +373,7 @@ class alat extends Controller
             'tanggal_saranalat' => date("Y-m-d H:i:s"),
             'id_pengguna' => $request->id
         ]);
-        return redirect('alat')->with('status', 'Berhasil Dibuat');
+        return redirect('alat')->with('status', 'Saran Alat Kamu Berhasil Robo Simpan');
     }
 
 }

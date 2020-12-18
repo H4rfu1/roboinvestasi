@@ -5,7 +5,6 @@
 @section('title2', 'Blog')
 
 @section('page')
-
   <div class="page-section">
     <div class="container">
       <div class="row">

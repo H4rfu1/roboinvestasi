@@ -38,7 +38,7 @@ class diskusi extends Controller
         if (Auth::check()) {
             return view('diskusi.index', compact('data'));
         }else{
-            return redirect('login')->with('status', 'Login terlebih dahulu sebelum Mengakses fitur Diskusi');
+            return redirect('login')->with('status', 'Robo mengingatkan, kamu harus Login sebelum  Mengakses fitur Diskusi');
         }
     }
 

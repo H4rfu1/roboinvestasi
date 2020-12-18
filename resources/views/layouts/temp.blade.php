@@ -38,6 +38,27 @@
 @elseif(Route::current()->getName() == 'profil')
   <link rel="stylesheet" href="{{asset('css/profil.css')}}">
 @endif
+@if(Route::current()->getName() == 'tools')
+<script>
+      function countChar1(val) {  
+        var len = val.value.length;
+        if (len >= 51) {
+          val.value = val.value.substring(0, 50);
+        } else {
+          $('#charNum1').text(50 - len);
+        }
+      };
+
+      function countChar2(val) {
+        var len = val.value.length;
+        if (len >= 251) {
+          val.value = val.value.substring(0, 250);
+        } else {
+          $('#charNum2').text(250 - len);
+        }
+      };
+    </script>
+@endif
 
   <style>
   .page-banner{
@@ -121,8 +142,11 @@
       <div class="page-banner home-banner">
         <div class="row align-items-center flex-wrap-reverse h-100">
           <div class="col-md-6 py-5 wow fadeInLeft">
-            <h1 class="mb-4 text-white">Mari Melek Finansial!</h1>
-            <p class="text-lg text-white mb-5">RoboInvestasi siap membantu anda <i>"Finansial Freedom"</i> dengan berinvestasi.</p>
+          <div class="d-flex justify-content-center mb-5">
+              <img class="img-fluid" src="{{asset('assets/img/avatar100.png')}}" alt="">
+            </div>
+            <h1 class="mb-4 text-white text-center">Mari Melek Finansial!</h1>
+            <p class="text-lg text-white mb-5 text-center">RoboInvestasi siap membantu anda <i>"Finansial Freedom"</i> dengan berinvestasi.</p>
             <!-- <a href="#about" class="btn btn-primary btn-split" >Mulai<div class="fab"><span class="mai-play"></span></div></a> -->
           </div>
           <div class="col-md-6 py-5 wow zoomIn">
