@@ -107,6 +107,34 @@
 <script src="{{asset('assets/js/bootstrap.bundle.min.js')}}"></script>
 <!--===============================================================================================-->
 	<script src="assets/js/login.js"></script>
+	
+	<!-- Bot -->
+<script>
+	  window.watsonAssistantChatOptions = {
+		  integrationID: "e37bf3d6-57e7-4dcf-9d75-337c653e7e32", // The ID of this integration.
+		  region: "us-south", // The region your integration is hosted in.
+		  serviceInstanceID: "b31b47e4-6a60-43bd-87e6-5091322d7ff2", // The ID of your service instance.
+		  
+      // Config option to change Carbon themes.
+      carbonTheme: 'g10',
+    onLoad: function(instance) {
+      // Instance method to adjust specific CSS variables
+      instance.updateCSSVariables({
+        'BASE-font-family': '"Times New Roman", Times, serif',
+        '$active-primary': '#009747',
+        '$focus': '#045A48',
+        '$hover-primary': '#045A48',
+        '$interactive-01': '#009747'
+      });
+      instance.render();
+    }
+		};
+	  setTimeout(function(){
+		const t=document.createElement('script');
+		t.src="https://web-chat.global.assistant.watson.appdomain.cloud/loadWatsonAssistantChat.js";
+		document.head.appendChild(t);
+	  });
+	</script>
 
 </body>
 </html>

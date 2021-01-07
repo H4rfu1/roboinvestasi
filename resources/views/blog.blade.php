@@ -24,14 +24,16 @@
             </div> -->
           </form>
         </div>
+        @if(Auth::check())
         <div class="col-sm-2 text-sm-right">
           <a class="btn btn-secondary" href="{{url('/blog/buat')}}" >Buat artikel</a>
         </div>
+        @endif
       </div>
 
       
       <div class="row my-5" >
-      @foreach($get as $li)
+      @foreach($data as $li)
         <div class="col-lg-4 py-3" >
           <div class="card-blog">
             <div class="header">
@@ -104,22 +106,25 @@
         </div> -->
 
       </div>
+      
+      
+      {{ $data->links() }}
 
-      <nav aria-label="Page Navigation">
-        <ul class="pagination justify-content-center">
-          <li class="page-item disabled">
-            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-          </li>
-          <li class="page-item"><a class="page-link" href="#">1</a></li>
-          <li class="page-item active" aria-current="page">
-            <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="page-item"><a class="page-link" href="#">3</a></li>
-          <li class="page-item">
-            <a class="page-link" href="#">Next</a>
-          </li>
-        </ul>
-      </nav>
+      <!--<nav aria-label="Page Navigation">-->
+      <!--  <ul class="pagination justify-content-center">-->
+      <!--    <li class="page-item disabled">-->
+      <!--      <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>-->
+      <!--    </li>-->
+      <!--    <li class="page-item"><a class="page-link" href="#">1</a></li>-->
+      <!--    <li class="page-item active" aria-current="page">-->
+      <!--      <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>-->
+      <!--    </li>-->
+      <!--    <li class="page-item"><a class="page-link" href="#">3</a></li>-->
+      <!--    <li class="page-item">-->
+      <!--      <a class="page-link" href="#">Next</a>-->
+      <!--    </li>-->
+      <!--  </ul>-->
+      <!--</nav>-->
 
     </div>
   </div>

@@ -7,12 +7,12 @@
 @section('page')
   <div class="page-section">
     <div class="container">
-    @if (session('status'))
-                <div class="alert alert-success alert-dismissible " role="alert">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
-                </button>
-                {{ session('status') }}
-                </div>
+      @if (session('status'))
+        <div class="alert alert-success alert-dismissible " role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
+        </button>
+        {{ session('status') }}
+        </div>
 			@endif
       <div class="row">
         <div class="col-lg-4">
@@ -95,6 +95,8 @@
 
                     if($d->id_pengguna == Auth::user()->id){
                       $milik = true;
+                    }else{
+                        $milik = false;
                     }
                   }else{
                     $count = false;
@@ -109,7 +111,7 @@
                     <div class="features">
                       <div class="header mb-3">
                         <div style="position: absolute; top: 0px; right: 20px; font-size: 18px;"> 
-                        <a href="" class="send_upvote" id="upvote{{$d->id_saranalat}}" data-id="{{$d->id_saranalat}}" >
+                        <a href="" class="send_upvote upvote{{$d->id_saranalat}}" data-id="{{$d->id_saranalat}}" >
                           @if($count)
                           <span>{{$allcount}}</span> <i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
                           @else
@@ -141,7 +143,7 @@
                     <div class="features">
                       <div class="header mb-3">
                       <div style="position: absolute; top: 0px; right: 20px; font-size: 18px;"> 
-                      <a href="" class="send_upvote" id="upvote{{$d->id_saranalat}}" data-id="{{$d->id_saranalat}}" >
+                      <a href="" class="send_upvote upvote{{$d->id_saranalat}}" data-id="{{$d->id_saranalat}}" >
                           @if($count)
                           <span>{{$allcount}}</span> <i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
                           @else
@@ -169,7 +171,7 @@
                     <div class="features">
                       <div class="header mb-3">
                         <div style="position: absolute; top: 0px; right: 20px; font-size: 18px;"> 
-                        <a href="" class="send_upvote" id="upvote{{$d->id_saranalat}}" data-id="{{$d->id_saranalat}}" >
+                        <a href="" class="send_upvote upvote{{$d->id_saranalat}}" data-id="{{$d->id_saranalat}}" >
                           @if($count)
                           <span>{{$allcount}}</span> <i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
                           @else
@@ -199,7 +201,7 @@
                     <div class="features">
                       <div class="header mb-3">
                         <div style="position: absolute; top: 0px; right: 20px; font-size: 18px;"> 
-                        <a href="" class="send_upvote" id="upvote{{$d->id_saranalat}}" data-id="{{$d->id_saranalat}}" >
+                        <a href="" class="send_upvote upvote{{$d->id_saranalat}}" data-id="{{$d->id_saranalat}}" >
                           @if($count)
                           <span>{{$allcount}}</span> <i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
                           @else
@@ -265,13 +267,24 @@
                   <div class="col-sm-6 col-lg-4 col-xl-3 py-3">
                     <div class="features">
                       <div class="header mb-3">
-                        <div style="position: absolute; top: 0px; right: 20px; font-size: 18px;"> <a href="" class="send_upvote" id="upvote{{$d->id_saranalat}}" data-id="{{$d->id_saranalat}}" >
+                        <div style="position: absolute; top: 0px; right: 20px; font-size: 18px;"> 
+                        <a href="" class="send_upvote upvote{{$d->id_saranalat}}" data-id="{{$d->id_saranalat}}" >
                           @if($count)
                           <span>{{$allcount}}</span> <i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
                           @else
                           <span>{{$allcount}}</span> <i class="fa fa-arrow-up" aria-hidden="true"></i>
                           @endif
                         </a></div> 
+                        @if($milik)
+                        <div style="position: absolute; top: 0px; left: 20px; font-size: 18px;"> 
+                        <a href="{{url('deletesaran/'.$d->id_saranalat)}}" class="sampah">
+                          <i class="fa fa-trash" aria-hidden="true"></i>
+                        </a>
+                        <a href="" class="pensil" data-toggle="modal" data-id="{{$d->id_saranalat}}" data-target="#exampleModalCenter">
+                          <i class="fa fa-pencil" aria-hidden="true"></i>
+                        </a>
+                      </div>
+                      @endif
                         <span class="mai-business"></span>
                       </div>
                       <h5>{{$d->nama_alat}}</h5>
@@ -286,13 +299,24 @@
                   <div class="col-sm-6 col-lg-4 col-xl-3 py-3">
                     <div class="features">
                       <div class="header mb-3">
-                        <div style="position: absolute; top: 0px; right: 20px; font-size: 18px;"> <a href="" class="send_upvote" id="upvote{{$d->id_saranalat}}" data-id="{{$d->id_saranalat}}" >
+                      <div style="position: absolute; top: 0px; right: 20px; font-size: 18px;"> 
+                      <a href="" class="send_upvote upvote{{$d->id_saranalat}}" data-id="{{$d->id_saranalat}}" >
                           @if($count)
                           <span>{{$allcount}}</span> <i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
                           @else
                           <span>{{$allcount}}</span> <i class="fa fa-arrow-up" aria-hidden="true"></i>
                           @endif
                         </a></div> 
+                        @if($milik)
+                        <div style="position: absolute; top: 0px; left: 20px; font-size: 18px;"> 
+                        <a href="{{url('deletesaran/'.$d->id_saranalat)}}" class="sampah">
+                          <i class="fa fa-trash" aria-hidden="true"></i>
+                        </a>
+                        <a href="" class="pensil" data-toggle="modal" data-id="{{$d->id_saranalat}}"  data-target="#exampleModalCenter">
+                          <i class="fa fa-pencil" aria-hidden="true"></i>
+                        </a>
+                      </div>
+                      @endif
                         <span class="mai-business"></span>
                       </div>
                       <h5>{{$d->nama_alat}}</h5>
@@ -303,13 +327,24 @@
                 <div class="col-sm-6 col-lg-4 col-xl-3 py-3">
                     <div class="features">
                       <div class="header mb-3">
-                        <div style="position: absolute; top: 0px; right: 20px; font-size: 18px;"> <a href="" class="send_upvote" id="upvote{{$d->id_saranalat}}" data-id="{{$d->id_saranalat}}" >
+                        <div style="position: absolute; top: 0px; right: 20px; font-size: 18px;"> 
+                        <a href="" class="send_upvote upvote{{$d->id_saranalat}}" data-id="{{$d->id_saranalat}}" >
                           @if($count)
                           <span>{{$allcount}}</span> <i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
                           @else
                           <span>{{$allcount}}</span> <i class="fa fa-arrow-up" aria-hidden="true"></i>
                           @endif
                         </a></div> 
+                        @if($milik)
+                        <div style="position: absolute; top: 0px; left: 20px; font-size: 18px;"> 
+                        <a href="{{url('deletesaran/'.$d->id_saranalat)}}" class="sampah">
+                          <i class="fa fa-trash" aria-hidden="true"></i>
+                        </a>
+                        <a href="" class="pensil" data-toggle="modal" data-id="{{$d->id_saranalat}}"  data-target="#exampleModalCenter">
+                          <i class="fa fa-pencil" aria-hidden="true"></i>
+                        </a>
+                      </div>
+                      @endif
                         <span class="mai-business"></span>
                       </div>
                       <h5>{{$d->nama_alat}}</h5>
@@ -322,13 +357,24 @@
                 <div class="col-sm-6 col-lg-4 col-xl-3 py-3">
                     <div class="features">
                       <div class="header mb-3">
-                        <div style="position: absolute; top: 0px; right: 20px; font-size: 18px;"> <a href="" class="send_upvote" id="upvote{{$d->id_saranalat}}" data-id="{{$d->id_saranalat}}" >
+                        <div style="position: absolute; top: 0px; right: 20px; font-size: 18px;"> 
+                        <a href="" class="send_upvote upvote{{$d->id_saranalat}}" data-id="{{$d->id_saranalat}}" >
                           @if($count)
                           <span>{{$allcount}}</span> <i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
                           @else
                           <span>{{$allcount}}</span> <i class="fa fa-arrow-up" aria-hidden="true"></i>
                           @endif
                         </a></div> 
+                        @if($milik)
+                        <div style="position: absolute; top: 0px; left: 20px; font-size: 18px;"> 
+                        <a href="{{url('deletesaran/'.$d->id_saranalat)}}" class="sampah">
+                          <i class="fa fa-trash" aria-hidden="true"></i>
+                        </a>
+                        <a href="" class="pensil" data-toggle="modal" data-id="{{$d->id_saranalat}}" data-target="#exampleModalCenter">
+                          <i class="fa fa-pencil" aria-hidden="true"></i>
+                        </a>
+                      </div>
+                      @endif
                         <span class="mai-business"></span>
                       </div>
                       <h5>{{$d->nama_alat}}</h5>
@@ -408,7 +454,7 @@
             },
             success: function (response) {
                 console.log(response);
-                $("#upvote"+id).html(response);
+                $(".upvote"+id).html(response);
               }
             });
         });

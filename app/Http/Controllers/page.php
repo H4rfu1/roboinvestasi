@@ -32,8 +32,8 @@ class page extends Controller
     }
     public function blog()
     {
-        $data = blog::all();
-        return view('blog',['get'=>$data]);
+        $data = blog::paginate(9);
+        return view('blog',['data'=>$data]);
     }
 
     public function blogDetail($id)
